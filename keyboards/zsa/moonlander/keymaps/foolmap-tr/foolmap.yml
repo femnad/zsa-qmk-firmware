@@ -1,0 +1,40 @@
+custom_keys:
+  - clear
+
+unicode_map:
+  c_cdl: ['0x00e7', '0x00c7']
+  g_brv: ['0x011f', '0x011e']
+  i_dot: ['0x0131', '0x0130']
+  o_dia: ['0x00f6', '0x00d6']
+  s_cdl: ['0x015f', '0x015e']
+  u_dia: ['0x00fc', '0x00dc']
+
+layouts:
+  base:
+    - osl(mdia) 1         2         3         4         5         esc       bspc      6         7         8         9         0         osl(mdia)
+    - vold      quot      comm      dot       p         y         tab       ent       f         g         c         r         l         volu
+    - osl(trum) a         o         e         u         i         osm(lsft) osm(rsft) d         h         t         n         s         osl(trum)
+    - clear     scln      q         j         k         x                             b         m         w         v         z         clear
+    - osm(lgui) home      pgup      pgdn      end       osl(symb)                     osl(symb) left      down      up        right     osm(rgui)
+    -                               spc       osm(lctl) osm(lalt)                     osm(ralt) osm(rctl) spc
+  symb:
+    - _         f1        f2        f3        f4        f5        _         _         f6        f7        f8        f9        f10       _
+    - mprv      exlm      at        hash      dlr       perc      _         _         circ      ampr      astr      f11       f12       wbak
+    - mnxt      lcbr      rcbr      lprn      rprn      eql       _         _         slsh      mins      unds      lbrc      rbrc      wfwd
+    - _         mply      mute      tild      pipe      grv                           bsls      plus      del       ins       bsls      _
+    - _         _         _         _         _         _                             _         _         _         _         _         _
+    -                               _         _         _                             _         _         _
+  mdia:
+    - _         _         _         _         _         _         _         _         _         _         _         _         _         _
+    - _         wh_u      wh_l      ms_u      wh_r      _         _         _         _         acl2      acl1      acl0      _         _
+    - _         wh_d      ms_l      ms_d      ms_r      _         _         _         _         btn1      btn2      btn2      _         _
+    - _         rgb_mod   rgb_rmod  _         _         qk_boot                       qk_boot   _         _         _         rgb_tog   _
+    - _         _         _         _         _         _                             _         _         _         _         _         _
+    -                               _         _         _                             _         _         _
+  trum:
+    - _         _         _         _         _         _         _         _         _         _         _         _         _         _
+    - _         _         _         _         _         _         _         _         _         g_brv     c_cdl     _         _         _
+    - _         _         o_dia     _         u_dia     i_dot     _         _         _         _         _         _         s_cdl     _
+    - _         _         _         _         _         _                             _         _         _         _         _         _
+    - _         _         _         _         _         _                             _         _         _         _         _         _
+    -                               _         _         _                             _         _         _
