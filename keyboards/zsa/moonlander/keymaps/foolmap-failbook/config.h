@@ -13,4 +13,4 @@
 
 #define RETRO_TAPPING
 
-#define TAPPING_TERM 300
+#define TAPPING_TERM 500
