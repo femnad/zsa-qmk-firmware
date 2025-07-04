@@ -12,3 +12,5 @@
 #define ONESHOT_TIMEOUT 3000
 
 #define RETRO_TAPPING
+
+#define TAPPING_TERM 300
