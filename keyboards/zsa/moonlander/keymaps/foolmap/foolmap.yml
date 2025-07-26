@@ -16,7 +16,7 @@ layouts:
     - _         _         _         tild      pipe      grv                           bsls      plus      del       ins       bsls      _
     - _         _         _         _         _         _                             _         _         _         _         _         _
     -                               _         _         _                             _         _         _
-  mdia:
+  move:
     - _         _         _         _         _         _         _         _         _         _         _         _         _         _
     - _         _         wh_d      ms_u      wh_u      pgup      _         _         btn2      acl0      up        acl1      acl2      _
     - _         _         ms_l      ms_d      ms_r      pgdn      _         _         btn1      left      down      right     _         _
