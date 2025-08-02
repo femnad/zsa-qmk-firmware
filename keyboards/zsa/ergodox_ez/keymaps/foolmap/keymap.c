@@ -3,42 +3,42 @@
 
 #define BASE 0
 #define SYMB 1
-#define MISC 2
+#define MOVE 2
 
 enum custom_keycodes {
-  CLEAR = SAFE_RANGE,
+  CLEAR = SAFE_RANGE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Keymap 0: base
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |@MISC   |  1   |  2   |  3   |  4   |  5   | ESC  |           | BSPC |  6   |  7   |  8   |  9   |  0   |   @MISC|
+ * |MUTE    |  1   |  2   |  3   |  4   |  5   | ESC  |           | BSPC |  6   |  7   |  8   |  9   |  0   |    VOLU|
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |MUTE    |  '   |  ,   |  .   |  P   |  Y   | TAB  |           | ENT  |  F   |  G   |  C   |  R   |  L   |    VOLU|
+ * |MPLY    |  '   |  ,   |  .   |  P   |  Y   | TAB  |           | ENT  |  F   |  G   |  C   |  R   |  L   |    VOLD|
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |MPLY    |  A   |  O   |  E   |  U   |  I   |------|           |------|  D   |  H   |  T   |  N   |  S   |    VOLD|
+ * |@MOVE   |  A   |  O   |  E   |  U   |  I   |------|           |------|  D   |  H   |  T   |  N   |  S   |   @MOVE|
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |CLEAR   |  ;   |  Q   |  J   |  K   |  X   |^LSFT |           |^RSFT |  B   |  M   |  W   |  V   |  Z   |   CLEAR|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |^LGUI | HOME | PGUP | PGDN | END  |                                       | LEFT | DOWN |  UP  |RIGHT |^RGUI |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |@SYMB | LGUI |       | RGUI |@SYMB |
+ *                                        |@SYMB |^LGUI |       |^RGUI |@SYMB |
  *                                 ,------|------|------|       |------+------+------.
- *                                 | SPC  |^LCTL |SH_OS |       |SH_OS |^RCTL | SPC  |
+ *                                 | SPC  |^LCTL |^HYPR |       |^HYPR |^RCTL | SPC  |
  *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |^LALT |       |^RALT |      |      |
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox_pretty(
-        OSL(MISC),     KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,    KC_0, OSL(MISC),
-        KC_MUTE,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,    KC_L, KC_VOLU,
-        KC_MPLY,       KC_A,          KC_O,          KC_E,          KC_U,          KC_I,    KC_D,          KC_H,          KC_T,     KC_N,          KC_S, KC_VOLD,
-        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,          KC_W, KC_V,    KC_Z, CLEAR,
+        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,      KC_0, KC_VOLU,
+        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,      KC_L, KC_VOLD,
+        OSL(MOVE),     KC_A,          KC_O,          KC_E,          KC_U,          KC_I,    KC_D,          KC_H,          KC_T,     KC_N,          KC_S, OSL(MOVE),
+        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,          KC_W, KC_V,      KC_Z, CLEAR,
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
-        OSL(SYMB),     KC_LGUI,       KC_RGUI,       OSL(SYMB),
-        SH_OS,         SH_OS,
+        OSL(SYMB),     OSM(MOD_LGUI), OSM(MOD_RGUI), OSL(SYMB),
+        OSM(MOD_HYPR), OSM(MOD_HYPR),
         KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC
 ),
 
@@ -73,15 +73,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______
 ),
 
-/* Keymap 2: misc
+/* Keymap 2: move
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |        |      |      | MS_U |      | WH_U |      |           |      |      | ACL2 | ACL1 | ACL0 |      |        |
+ * |        |      | WH_D | MS_U | WH_U | PGUP |      |           |      | BTN2 | ACL0 |  UP  | ACL1 | ACL2 |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      | MS_L | MS_D | MS_R | WH_D |------|           |------|      | BTN1 | BTN2 | BTN3 |      |        |
+ * |        |      | MS_L | MS_D | MS_R | PGDN |------|           |------| BTN1 | LEFT | DOWN |RIGHT |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      | BOOT |      |           |      | BOOT | WH_L | WH_R |      |      |        |
+ * |        | RGB+ | RGB- | HOME | END  | BOOT |      |           |      | BOOT | WH_L | WH_R |      |RGB_TOG|        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -93,15 +93,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-[MISC] = LAYOUT_ergodox_pretty(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, KC_MS_U, _______, KC_WH_U, _______, _______, _______, KC_ACL2, KC_ACL1, KC_ACL0, _______, _______,
-        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,
-        _______, _______, _______, _______, _______, QK_BOOT, _______, _______, QK_BOOT, KC_WH_L, KC_WH_R, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______,
+[MOVE] = LAYOUT_ergodox_pretty(
+        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______,
+        _______, _______, KC_WH_D,  KC_MS_U, KC_WH_U, KC_PGUP, _______, _______, KC_BTN2, KC_ACL0,  KC_UP,   KC_ACL1, KC_ACL2, _______,
+        _______, _______, KC_MS_L,  KC_MS_D, KC_MS_R, KC_PGDN, KC_BTN1, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
+        _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, _______, _______, QK_BOOT, KC_WH_L,  KC_WH_R, _______, RGB_TOG, _______,
+        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______,  _______,
         _______, _______,
-        _______, _______, _______, _______, _______, _______
+        _______, _______, _______,  _______, _______, _______
 ),
 
 };
