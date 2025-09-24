@@ -17,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * | MPLY  |   '   |   ,   |   .   |   P   |   Y   |  TAB  |  ENT  |   F   |   G   |   C   |   R   |   L   | VOLD  |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * | @MDIA |   A   |   O   |   E   |   U   |   I   | ^LSFT | ^RSFT |   D   |   H   |   T   |   N   |   S   | @MDIA |
+ * | @MOVE |   A   |   O   |   E   |   U   |   I   | ^LSFT | ^RSFT |   D   |   H   |   T   |   N   |   S   | @MOVE |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * | CLEAR |   ;   |   Q   |   J   |   K   |   X   |               |   B   |   M   |   W   |   V   |   Z   | CLEAR |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_moonlander(
         KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,          KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,  KC_8,     KC_9,          KC_0, KC_VOLU,
         KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,  KC_C,     KC_R,          KC_L, KC_VOLD,
-        OSL(KC_MDIA),  KC_A,          KC_O,          KC_E,          KC_U,          KC_I,      OSM(MOD_LSFT), OSM(MOD_RSFT), KC_D,    KC_H,  KC_T,     KC_N,          KC_S, OSL(KC_MDIA),
+        OSL(MOVE),     KC_A,          KC_O,          KC_E,          KC_U,          KC_I,      OSM(MOD_LSFT), OSM(MOD_RSFT), KC_D,    KC_H,  KC_T,     KC_N,          KC_S, OSL(MOVE),
         CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,      KC_B,          KC_M,          KC_W,    KC_V,  KC_Z,     CLEAR,
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP, KC_RIGHT, OSM(MOD_RGUI),
         KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC

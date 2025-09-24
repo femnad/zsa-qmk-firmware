@@ -5,7 +5,7 @@ layouts:
   base:
     - mute      1         2         3         4         5         esc       bspc      6         7         8         9         0         volu
     - mply      quot      comm      dot       p         y         tab       ent       f         g         c         r         l         vold
-    - osl(mdia) a         o         e         u         i         osm(lsft) osm(rsft) d         h         t         n         s         osl(mdia)
+    - osl(move) a         o         e         u         i         osm(lsft) osm(rsft) d         h         t         n         s         osl(move)
     - clear     scln      q         j         k         x                             b         m         w         v         z         clear
     - osm(lgui) home      pgup      pgdn      end       osl(symb)                     osl(symb) left      down      up        right     osm(rgui)
     -                               spc       osm(lctl) osm(lalt)                     osm(ralt) osm(rctl) spc
