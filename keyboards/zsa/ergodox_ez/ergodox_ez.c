@@ -263,6 +263,7 @@ __attribute__((weak)) const is31fl3731_led_t PROGMEM g_is31fl3731_leds[IS31FL373
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+#ifdef COMMUNITY_MODULE_DEFAULTS_ENABLE
         case LED_LEVEL:
             if (record->event.pressed) {
                 keyboard_config.led_level++;
@@ -274,7 +275,9 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 layer_state_set_kb(layer_state);
             }
             break;
+#endif
 #    ifdef RGB_MATRIX_ENABLE
+#ifdef COMMUNITY_MODULE_DEFAULTS_ENABLE
         case TOGGLE_LAYER_COLOR:
             if (record->event.pressed) {
                 keyboard_config.disable_layer_led ^= 1;
@@ -282,6 +285,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 eeconfig_update_kb(keyboard_config.raw);
             }
             break;
+#endif
         case RGB_TOG:
         case QK_RGB_MATRIX_TOGGLE:
             if (record->event.pressed) {

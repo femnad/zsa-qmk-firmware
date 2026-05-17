@@ -236,6 +236,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     }
     switch (keycode) {
 #if !defined(VOYAGER_USER_LEDS)
+#    ifdef COMMUNITY_MODULE_DEFAULTS_ENABLE
         case LED_LEVEL:
             if (record->event.pressed) {
                 keyboard_config.led_level ^= 1;
@@ -250,8 +251,10 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             break;
+#    endif
 #endif
 #ifdef RGB_MATRIX_ENABLE
+#    ifdef COMMUNITY_MODULE_DEFAULTS_ENABLE
         case TOGGLE_LAYER_COLOR:
             if (record->event.pressed) {
                 keyboard_config.disable_layer_led ^= 1;
@@ -259,6 +262,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 eeconfig_update_kb(keyboard_config.raw);
             }
             break;
+#    endif
         case RGB_TOG:
         case QK_RGB_MATRIX_TOGGLE:
             if (record->event.pressed) {
