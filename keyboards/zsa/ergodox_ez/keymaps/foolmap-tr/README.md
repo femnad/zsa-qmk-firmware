@@ -2,17 +2,19 @@
 
 ## Build and Flash
 
-To compile the firmware, run:
+To compile the firmware for ErgoDox EZ (m32u4 base), run:
 
 ```bash
-make zsa/ergodox_ez:foolmap-tr
+make zsa/ergodox_ez/m32u4/base:foolmap-tr
 ```
 
 To compile and flash in one step:
 
 ```bash
-make zsa/ergodox_ez:foolmap-tr:flash
+make zsa/ergodox_ez/m32u4/base:foolmap-tr:flash
 ```
+
+*Note: Replace `m32u4/base` with your specific model (e.g., `m32u4/glow`, `stm32/base`) if needed.*
 
 ## Setup Requirements
 
