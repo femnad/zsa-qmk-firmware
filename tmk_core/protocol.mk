@@ -33,10 +33,6 @@ ifeq ($(strip $(PROGRAMMABLE_BUTTON_ENABLE)), yes)
     SHARED_EP_ENABLE = yes
 endif
 
-ifeq ($(strip $(RAW_ENABLE)), yes)
-    OPT_DEFS += -DRAW_ENABLE
-endif
-
 ifeq ($(strip $(CONSOLE_ENABLE)), yes)
     OPT_DEFS += -DCONSOLE_ENABLE
 else
@@ -46,16 +42,8 @@ else
 endif
 
 ifeq ($(strip $(NKRO_ENABLE)), yes)
-    ifeq ($(strip $(BLUETOOTH_ENABLE)), yes)
-        $(info NKRO is not currently supported with Bluetooth, and has been disabled.)
-    else
-        OPT_DEFS += -DNKRO_ENABLE
-        SHARED_EP_ENABLE = yes
-    endif
-endif
-
-ifeq ($(strip $(RING_BUFFERED_6KRO_REPORT_ENABLE)), yes)
-    OPT_DEFS += -DRING_BUFFERED_6KRO_REPORT_ENABLE
+    OPT_DEFS += -DNKRO_ENABLE
+    SHARED_EP_ENABLE = yes
 endif
 
 ifeq ($(strip $(NO_SUSPEND_POWER_DOWN)), yes)
@@ -90,10 +78,16 @@ endif
 
 ifeq ($(strip $(DIGITIZER_ENABLE)), yes)
     OPT_DEFS += -DDIGITIZER_ENABLE
-    ifeq ($(strip $(SHARED_EP_ENABLE)), yes)
+    ifeq ($(strip $(DIGITIZER_MODE)), touchpad)
+        # Touchpad mode always uses a dedicated endpoint (PTP needs 64-byte packets)
+    else ifeq ($(strip $(SHARED_EP_ENABLE)), yes)
         OPT_DEFS += -DDIGITIZER_SHARED_EP
         SHARED_EP_ENABLE = yes
     endif
+endif
+
+ifeq ($(strip $(DIGITIZER_MODE)), touchpad)
+    OPT_DEFS += -DDIGITIZER_MODE_TOUCHPAD
 endif
 
 ifeq ($(strip $(SHARED_EP_ENABLE)), yes)
