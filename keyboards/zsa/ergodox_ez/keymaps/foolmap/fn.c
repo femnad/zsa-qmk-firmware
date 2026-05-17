@@ -70,7 +70,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return state;
 };
 
-void oneshot_mods_changed_user(uint8_t mods) {
+bool rgb_matrix_indicators_user(void) {
+  uint8_t mods = get_oneshot_mods();
+  uint8_t locked_mods = get_oneshot_locked_mods();
+
   if (mods & MOD_MASK_SHIFT) {
     rgb_matrix_sethsv_noeeprom(HSV_GREEN);
   }
@@ -83,30 +86,19 @@ void oneshot_mods_changed_user(uint8_t mods) {
   if (mods & MOD_MASK_GUI) {
     rgb_matrix_sethsv_noeeprom(HSV_CORAL);
   }
-  if (!mods) {
-    rgb_matrix_sethsv_noeeprom(HSV_OFF);
-  }
-}
 
-void oneshot_locked_mods_changed_user(uint8_t mods) {
-  if (mods & MOD_MASK_SHIFT) {
+  if (locked_mods & MOD_MASK_SHIFT) {
     rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
   }
-  if (mods & MOD_MASK_CTRL) {
+  if (locked_mods & MOD_MASK_CTRL) {
     rgb_matrix_sethsv_noeeprom(HSV_CYAN);
   }
-  if (mods & MOD_MASK_ALT) {
+  if (locked_mods & MOD_MASK_ALT) {
     rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
   }
-  if (mods & MOD_MASK_GUI) {
+  if (locked_mods & MOD_MASK_GUI) {
     rgb_matrix_sethsv_noeeprom(HSV_PINK);
   }
-  if (!mods) {
-    rgb_matrix_sethsv_noeeprom(HSV_OFF);
-  }
-}
 
-void keyboard_post_init_user(void) {
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_sethsv_noeeprom(HSV_OFF);
+  return true;
 }

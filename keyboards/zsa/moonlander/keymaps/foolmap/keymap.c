@@ -155,9 +155,3 @@ bool rgb_matrix_indicators_user(void) {
 
   return true;
 }
-
-void keyboard_post_init_user(void) {
-    rgb_matrix_enable_noeeprom();
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_sethsv_noeeprom(HSV_OFF);
-}
