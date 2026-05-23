@@ -70,14 +70,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox_pretty(
-        OSL(MISC), KC_1,    KC_2,    KC_3,      KC_4,    KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,    KC_8, KC_9,      KC_0, OSL(MISC),
-        KC_MUTE,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,    KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,    KC_C, KC_R,      KC_L, KC_MPLY,
-        OSL(TRUM), KC_A,    KC_O,    KC_E,      KC_U,    KC_I,    KC_D,          KC_H,          KC_T,     KC_N,    KC_S, OSL(TRUM),
-        CLEAR,     KC_SCLN, KC_Q,    KC_J,      KC_K,    KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,    KC_W, KC_V,      KC_Z, CLEAR,
-        KC_LGUI,   KC_HOME, KC_PGUP, KC_PGDN,   KC_END,  KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, KC_RGUI,
-        OSL(SYMB), KC_LGUI, KC_RGUI, OSL(SYMB),
+        OSL(MISC), KC_1,     KC_2,     KC_3,      KC_4,     KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,     KC_8, KC_9,      KC_0, OSL(MISC),
+        KC_MUTE,   KC_QUOT,  KC_COMM,  KC_DOT,    KC_P,     KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,     KC_C, KC_R,      KC_L, KC_MPLY,
+        OSL(TRUM), KC_A,     KC_O,     KC_E,      KC_U,     KC_I,    KC_D,          KC_H,          KC_T,     KC_N,     KC_S, OSL(TRUM),
+        CLEAR,     KC_SCLN,  KC_Q,     KC_J,      KC_K,     KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,     KC_W, KC_V,      KC_Z, CLEAR,
+        MOD_LGUI,  KC_HOME,  KC_PGUP,  KC_PGDN,   KC_END,   KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, MOD_RGUI,
+        OSL(SYMB), MOD_LGUI, MOD_RGUI, OSL(SYMB),
         SH_OS,     SH_OS,
-        KC_SPC,    KC_LCTL, KC_LALT, KC_RALT,   KC_RCTL, KC_SPC
+        KC_SPC,    MOD_LCTL, MOD_LALT, MOD_RALT,  MOD_RCTL, KC_SPC
 ),
 
 /* Keymap 1: symb
@@ -175,99 +175,92 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-void clear(void) {
-  clear_oneshot_mods();
-  clear_oneshot_locked_mods();
-  clear_keyboard();
-  reset_oneshot_layer();
-  layer_clear();
-  layer_on(BASE);
-  rgb_matrix_sethsv_noeeprom(HSV_OFF);
-}
+#define LEFT_SHIFT_INDEX 31
+#define RIGHT_SHIFT_INDEX 67
+#define LEFT_CTRL_INDEX 33
+#define RIGHT_CTRL_INDEX 69
+#define LEFT_ALT_INDEX 34
+#define RIGHT_ALT_INDEX 70
+#define LEFT_GUI_INDEX 4
+#define RIGHT_GUI_INDEX 40
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
       case CLEAR:
-        clear();
+        clear_oneshot_mods();
+        clear_oneshot_locked_mods();
+        clear_keyboard();
+        reset_oneshot_layer();
+        layer_clear();
+        layer_on(BASE);
+        rgb_matrix_set_color_all(0, 0, 0);
         return false;
     }
-  }
+ }
   return true;
 }
 
-// Runs whenever there is a layer state change.
-layer_state_t layer_state_set_user(layer_state_t state) {
-  ergodox_board_led_off();
-  ergodox_right_led_1_off();
-  ergodox_right_led_2_off();
-  ergodox_right_led_3_off();
+void maybe_reset_rgb_matrix(uint8_t mods) {
+  if (mods == 0) {
+    rgb_matrix_set_color_all(0, 0, 0);
+  }
+}
 
-  uint8_t layer = get_highest_layer(state);
-  switch (layer) {
-      case 0:
-        break;
-      case 1:
-        ergodox_right_led_1_on();
-        break;
-      case 2:
-        ergodox_right_led_2_on();
-        break;
-      case 3:
-        ergodox_right_led_3_on();
-        break;
-      case 4:
-        ergodox_right_led_1_on();
-        ergodox_right_led_2_on();
-        break;
-      case 5:
-        ergodox_right_led_1_on();
-        ergodox_right_led_3_on();
-        break;
-      case 6:
-        ergodox_right_led_2_on();
-        ergodox_right_led_3_on();
-        break;
-      case 7:
-        ergodox_right_led_1_on();
-        ergodox_right_led_2_on();
-        ergodox_right_led_3_on();
-        break;
-      default:
-        break;
-    }
+void oneshot_mods_changed_user(uint8_t mods) {
+  maybe_reset_rgb_matrix(mods);
+}
 
-  return state;
-};
+void oneshot_locked_mods_changed_user(uint8_t mods) {
+  maybe_reset_rgb_matrix(mods);
+}
 
 bool rgb_matrix_indicators_user(void) {
   uint8_t mods = get_oneshot_mods();
   uint8_t locked_mods = get_oneshot_locked_mods();
 
   if (mods & MOD_MASK_SHIFT) {
-    rgb_matrix_sethsv_noeeprom(HSV_GREEN);
-  }
-  if (mods & MOD_MASK_CTRL) {
-    rgb_matrix_sethsv_noeeprom(HSV_BLUE);
-  }
-  if (mods & MOD_MASK_ALT) {
-    rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
-  }
-  if (mods & MOD_MASK_GUI) {
-    rgb_matrix_sethsv_noeeprom(HSV_CORAL);
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 0);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 0);
+  } else if (locked_mods & MOD_MASK_SHIFT) {
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 0);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 0);
+  } else {
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 0, 0, 0);
   }
 
-  if (locked_mods & MOD_MASK_SHIFT) {
-    rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
+  if (mods & MOD_MASK_CTRL) {
+    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 128, 0);
+    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 128, 0);
+  } else if (locked_mods & MOD_MASK_CTRL) {
+    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 255, 0);
+    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 255, 0);
+  } else {
+    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 0, 0);
   }
-  if (locked_mods & MOD_MASK_CTRL) {
-    rgb_matrix_sethsv_noeeprom(HSV_CYAN);
+
+  if (mods & MOD_MASK_ALT) {
+    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 128);
+    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 128);
+  } else if (locked_mods & MOD_MASK_ALT) {
+    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 255);
+    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 255);
+  } else {
+    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 0);
   }
-  if (locked_mods & MOD_MASK_ALT) {
-    rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
-  }
-  if (locked_mods & MOD_MASK_GUI) {
-    rgb_matrix_sethsv_noeeprom(HSV_PINK);
+
+  if (mods & MOD_MASK_GUI) {
+    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 100, 200);
+    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 100, 200);
+  } else if (locked_mods & MOD_MASK_GUI) {
+    rgb_matrix_set_color(LEFT_GUI_INDEX, 100, 200, 255);
+    rgb_matrix_set_color(RIGHT_GUI_INDEX, 100, 200, 255);
+  } else {
+    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 0, 0);
   }
 
   return true;
