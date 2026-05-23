@@ -120,16 +120,3 @@ compile_commands.json
 via*.json
 /keyboards/**/keymaps/via/*
 /keyboards/**/keymaps/vial/*
-
-# ZSA Specific ignores
-/docs/**
-/users/**
-/layouts/community/**
-/keyboards/**
-!/keyboards/zsa/
-!/keyboards/zsa/**
-/keyboards/zsa/**/keymaps/**
-!/keyboards/zsa/**/keymaps/default
-!/keyboards/zsa/**/keymaps/default/**
-!/keyboards/zsa/**/keymaps/oryx
-!/keyboards/zsa/**/keymaps/oryx/**
