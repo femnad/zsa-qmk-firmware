@@ -4,6 +4,14 @@
 #define BASE 0
 #define SYMB 1
 #define MOVE 2
+#define INDX 3
+
+#define DIAG_B MT(MOD_RSFT, KC_B)
+#define DIAG_X MT(MOD_LSFT, KC_X)
+#define HOME_H MT(MOD_RCTL, KC_H)
+#define HOME_U MT(MOD_LCTL, KC_U)
+#define INDX_I LT(INDX, KC_I)
+#define INDX_D LT(INDX, KC_D)
 
 enum custom_keycodes {
   CLEAR = SAFE_RANGE
@@ -31,8 +39,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_moonlander(
         KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,          KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,  KC_8,     KC_9,          KC_0, KC_VOLU,
         KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,  KC_C,     KC_R,          KC_L, KC_VOLD,
-        OSL(MOVE),     KC_A,          KC_O,          KC_E,          KC_U,          KC_I,      OSM(MOD_LSFT), OSM(MOD_RSFT), KC_D,    KC_H,  KC_T,     KC_N,          KC_S, OSL(MOVE),
-        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,      KC_B,          KC_M,          KC_W,    KC_V,  KC_Z,     CLEAR,
+        OSL(MOVE),     KC_A,          KC_O,          KC_E,          HOME_U,        INDX_I,    OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, KC_T,    KC_N,          KC_S, OSL(MOVE),
+        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          DIAG_X,    DIAG_B,        KC_M,          KC_W,    KC_V,  KC_Z,     CLEAR,
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP, KC_RIGHT, OSM(MOD_RGUI),
         KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC
 ),
@@ -84,6 +92,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, KC_WH_D,  KC_MS_U, KC_WH_U, KC_PGUP, _______, _______, KC_BTN2, KC_ACL0, KC_UP,   KC_ACL1,  KC_ACL2, _______,
         _______, _______, KC_MS_L,  KC_MS_D, KC_MS_R, KC_PGDN, _______, _______, KC_BTN1, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
         _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, QK_BOOT, KC_WH_L, KC_WH_R, _______, RGB_TOG, _______,
+        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______,  _______, _______, _______
+),
+
+[INDX] = LAYOUT_moonlander(
+        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
+        _______, _______, _______,  _______, _______, KC_ESC,  _______, _______,  KC_BSPC, _______, _______, _______, _______, _______,
+        _______, _______, _______,  _______, _______, KC_TAB,  _______, _______, KC_ENT,  _______, _______, _______,  _______, _______,
+        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______,  _______, _______, _______
 ),
