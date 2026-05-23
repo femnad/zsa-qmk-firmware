@@ -100,10 +100,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         reset_oneshot_layer();
         layer_clear();
         layer_on(BASE);
+        rgb_matrix_set_color_all(0, 0, 0);
         return false;
     }
  }
   return true;
+}
+
+void oneshot_mods_changed_user(uint8_t mods) {
+  if (mods == 0) {
+    rgb_matrix_set_color_all(0, 0, 0);
+  }
+}
+
+void oneshot_locked_mods_changed_user(uint8_t mods) {
+  if (mods == 0) {
+    rgb_matrix_set_color_all(0, 0, 0);
+  }
 }
 
 #define LEFT_SHIFT_INDEX 31
@@ -122,35 +135,45 @@ bool rgb_matrix_indicators_user(void) {
   if (mods & MOD_MASK_SHIFT) {
     rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 0);
     rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 0);
+  } else if (locked_mods & MOD_MASK_SHIFT) {
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 0);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 0);
+  } else {
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 0, 0, 0);
   }
+
   if (mods & MOD_MASK_CTRL) {
     rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 128, 0);
     rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 128, 0);
+  } else if (locked_mods & MOD_MASK_CTRL) {
+    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 255, 0);
+    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 255, 0);
+  } else {
+    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 0, 0);
   }
+
   if (mods & MOD_MASK_ALT) {
     rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 128);
     rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 128);
+  } else if (locked_mods & MOD_MASK_ALT) {
+    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 255);
+    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 255);
+  } else {
+    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 0);
   }
+
   if (mods & MOD_MASK_GUI) {
     rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 100, 200);
     rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 100, 200);
-  }
-
-  if (locked_mods & MOD_MASK_SHIFT) {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 0);
-  }
-  if (locked_mods & MOD_MASK_CTRL) {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 255, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 255, 0);
-  }
-  if (locked_mods & MOD_MASK_ALT) {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 255);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 255);
-  }
-  if (locked_mods & MOD_MASK_GUI) {
+  } else if (locked_mods & MOD_MASK_GUI) {
     rgb_matrix_set_color(LEFT_GUI_INDEX, 100, 200, 255);
     rgb_matrix_set_color(RIGHT_GUI_INDEX, 100, 200, 255);
+  } else {
+    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 0, 0);
+    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 0, 0);
   }
 
   return true;
