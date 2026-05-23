@@ -90,6 +90,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+#define LEFT_SHIFT_INDEX 31
+#define RIGHT_SHIFT_INDEX 67
+#define LEFT_CTRL_INDEX 33
+#define RIGHT_CTRL_INDEX 69
+#define LEFT_ALT_INDEX 34
+#define RIGHT_ALT_INDEX 70
+#define LEFT_GUI_INDEX 4
+#define RIGHT_GUI_INDEX 40
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
@@ -107,26 +116,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-void oneshot_mods_changed_user(uint8_t mods) {
+void maybe_reset_rgb_matrix(uint8_t mods) {
   if (mods == 0) {
     rgb_matrix_set_color_all(0, 0, 0);
   }
+}
+
+void oneshot_mods_changed_user(uint8_t mods) {
+  maybe_reset_rgb_matrix(mods);
 }
 
 void oneshot_locked_mods_changed_user(uint8_t mods) {
-  if (mods == 0) {
-    rgb_matrix_set_color_all(0, 0, 0);
-  }
+  maybe_reset_rgb_matrix(mods);
 }
-
-#define LEFT_SHIFT_INDEX 31
-#define RIGHT_SHIFT_INDEX 67
-#define LEFT_CTRL_INDEX 33
-#define RIGHT_CTRL_INDEX 69
-#define LEFT_ALT_INDEX 34
-#define RIGHT_ALT_INDEX 70
-#define LEFT_GUI_INDEX 4
-#define RIGHT_GUI_INDEX 40
 
 bool rgb_matrix_indicators_user(void) {
   uint8_t mods = get_oneshot_mods();
