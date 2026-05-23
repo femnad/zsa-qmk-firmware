@@ -25,8 +25,8 @@ layouts:
   base:
     - mute      1         2         3         4         5         esc       bspc      6         7         8         9         0         volu
     - mply      quot      comm      dot       p         y         tab       ent       f         g         c         r         l         vold
-    - osl(move) a         home_o    home_e    home_h    indx_i    osm(lsft) osm(rsft) indx_d    home_h    home_t    home_n    s         osl(move)
-    - clear     scln      q         j         k         diag_b                        diag_x    m         w         v         z         clear
+    - osl(move) a         home_o    home_e    home_u    indx_i    osm(lsft) osm(rsft) indx_d    home_h    home_t    home_n    s         osl(move)
+    - clear     scln      q         j         k         diag_x                        diag_b    m         w         v         z         clear
     - osm(lgui) home      pgup      pgdn      end       osl(symb)                     osl(symb) left      down      up        right     osm(rgui)
     -                               spc       osm(lctl) osm(lalt)                     osm(ralt) osm(rctl) spc
   symb:
