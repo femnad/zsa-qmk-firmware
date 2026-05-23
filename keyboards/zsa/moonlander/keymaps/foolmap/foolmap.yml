@@ -45,8 +45,8 @@ layouts:
     -                               _         _         _                             _         _         _
   indx:
     - _         _         _         _         _         _         _         _         _         _         _         _         _         _
-    - _         _         _         ms_u      _         esc       _         _         bspc      _         up        _         _         _
+    - _         _         btn2      ms_u      btn1      esc       _         _         bspc      home      up        end       _         _
     - _         _         ms_l      ms_d      ms_r      tab       _         _         ent       left      down      right     _         _
-    - _         _         _         _         _         _                             _         wh_l      wh_r      _         _         _
+    - _         _         _         _         _         _                             _         wh_d      wh_u      _         _         _
     - _         _         _         _         _         _                             _         _         _         _         _         _
     -                               _         _         _                             _         _         _
