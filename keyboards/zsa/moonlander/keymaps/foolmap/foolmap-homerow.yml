@@ -2,6 +2,16 @@ custom_keys:
   - clear
 
 custom_definitions:
+  diag_b: mt(mod_rsft, kc_b)
+  diag_x: mt(mod_lsft, kc_x)
+  home_e: mt(mod_lalt, kc_e)
+  home_h: mt(mod_rctl, kc_h)
+  home_n: mt(mod_rgui, kc_n)
+  home_o: mt(mod_lgui, kc_o)
+  home_t: mt(mod_ralt, kc_t)
+  home_u: mt(mod_lctl, kc_u)
+  indx_i: lt(indx, kc_i)
+  indx_d: lt(indx, kc_d)
   left_shift_index: 31
   right_shift_index: 67
   left_ctrl_index: 33
@@ -15,8 +25,8 @@ layouts:
   base:
     - mute      1         2         3         4         5         esc       bspc      6         7         8         9         0         volu
     - mply      quot      comm      dot       p         y         tab       ent       f         g         c         r         l         vold
-    - osl(move) a         o         e         u         i         osm(lsft) osm(rsft) d         h         t         n         s         osl(move)
-    - clear     scln      q         j         k         x                             b         m         w         v         z         clear
+    - osl(move) a         home_o    home_e    home_u    indx_i    osm(lsft) osm(rsft) indx_d    home_h    home_t    home_n    s         osl(move)
+    - clear     scln      q         j         k         diag_x                        diag_b    m         w         v         z         clear
     - osm(lgui) home      pgup      pgdn      end       osl(symb)                     osl(symb) left      down      up        right     osm(rgui)
     -                               spc       osm(lctl) osm(lalt)                     osm(ralt) osm(rctl) spc
   symb:
@@ -31,5 +41,12 @@ layouts:
     - _         _         wh_d      ms_u      wh_u      pgup      _         _         btn2      acl0      up        acl1      acl2      _
     - _         _         ms_l      ms_d      ms_r      pgdn      _         _         btn1      left      down      right     _         _
     - _         rgb_mod   rgb_rmod  home      end       qk_boot                       qk_boot   wh_l      wh_r      _         rgb_tog   _
+    - _         _         _         _         _         _                             _         _         _         _         _         _
+    -                               _         _         _                             _         _         _
+  indx:
+    - _         _         _         _         _         _         _         _         _         _         _         _         _         _
+    - _         _         btn2      ms_u      btn1      esc       _         _         bspc      home      up        end       _         _
+    - _         _         ms_l      ms_d      ms_r      tab       _         _         ent       left      down      right     _         _
+    - _         _         _         _         _         _                             _         wh_d      wh_u      _         _         _
     - _         _         _         _         _         _                             _         _         _         _         _         _
     -                               _         _         _                             _         _         _
