@@ -1,3 +1,18 @@
+header_definitions:
+  mk_3_speed:
+  mk_c_offset_0 8:
+  mk_c_offset_1: 16
+  mk_c_offset_2: 32
+  mk_w_interval_0: 120
+  mk_w_interval_1: 80
+  mk_w_interval_2: 40
+  oneshot_tap_toggle: 2
+  oneshot_timeout: 3000
+  chordal_hold:
+  quick_tap_term: 0
+  retro_tapping:
+  tapping_term: 250
+
 custom_keys:
   - clear
 
