@@ -159,6 +159,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+  ergodox_board_led_off();
+  ergodox_right_led_1_off();
+  ergodox_right_led_2_off();
+  ergodox_right_led_3_off();
+
+  uint8_t layer = get_highest_layer(state);
+  switch (layer) {
+      case 0:
+        break;
+      case 1:
+        ergodox_right_led_1_on();
+        break;
+      case 2:
+        ergodox_right_led_2_on();
+        break;
+      case 3:
+        ergodox_right_led_3_on();
+        break;
+      case 4:
+        ergodox_right_led_1_on();
+        ergodox_right_led_2_on();
+        break;
+      case 5:
+        ergodox_right_led_1_on();
+        ergodox_right_led_3_on();
+        break;
+      case 6:
+        ergodox_right_led_2_on();
+        ergodox_right_led_3_on();
+        break;
+      case 7:
+        ergodox_right_led_1_on();
+        ergodox_right_led_2_on();
+        ergodox_right_led_3_on();
+        break;
+      default:
+        break;
+    }
+
+  return state;
+}
+
 void maybe_reset_rgb_matrix(uint8_t mods) {
   if (mods == 0) {
     rgb_matrix_set_color_all(0, 0, 0);
@@ -181,27 +224,15 @@ bool rgb_matrix_indicators_user(void) {
     rgb_matrix_set_color_all(128, 0, 0);
   } else if (locked_mods & MOD_MASK_SHIFT) {
     rgb_matrix_set_color_all(255, 0, 0);
-  } else {
-    rgb_matrix_set_color_all(0, 0, 0);
-  }
-
-  if (mods & MOD_MASK_CTRL) {
+  } else if (mods & MOD_MASK_CTRL) {
     rgb_matrix_set_color_all(0, 128, 0);
   } else if (locked_mods & MOD_MASK_CTRL) {
     rgb_matrix_set_color_all(0, 255, 0);
-  } else {
-    rgb_matrix_set_color_all(0, 0, 0);
-  }
-
-  if (mods & MOD_MASK_ALT) {
+  } else if (mods & MOD_MASK_ALT) {
     rgb_matrix_set_color_all(0, 0, 128);
   } else if (locked_mods & MOD_MASK_ALT) {
     rgb_matrix_set_color_all(0, 0, 255);
-  } else {
-    rgb_matrix_set_color_all(0, 0, 0);
-  }
-
-  if (mods & MOD_MASK_GUI) {
+  } else if (mods & MOD_MASK_GUI) {
     rgb_matrix_set_color_all(0, 100, 200);
   } else if (locked_mods & MOD_MASK_GUI) {
     rgb_matrix_set_color_all(100, 200, 255);
