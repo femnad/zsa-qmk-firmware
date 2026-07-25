@@ -18,6 +18,8 @@ header_definitions:
   tapping_term: 250
 
 custom_definitions:
+  diag_b: mt(mod_rsft, kc_b)
+  diag_x: mt(mod_lsft, kc_x)
   home_e: mt(mod_lalt, kc_e)
   home_h: mt(mod_rctl, kc_h)
   home_n: mt(mod_rgui, kc_n)
@@ -32,11 +34,11 @@ layouts:
     - mute       1          2          3          4          5          esc        bspc       6          7          8          9          0          volu
     - mply       quot       comm       dot        p          y          tab        ent        f          g          c          r          l          vold
     - osl(move)  a          home_o     home_e     home_u     indx_i                           indx_d     home_h     home_t     home_n     s          osl(move)
-    - clear      scln       q          j          k          x          osm(lsft)  osm(rsft)  b          m          w          v          z          clear
+    - clear      scln       q          j          k          diag_x     osm(lsft)  osm(rsft)  diag_b     m          w          v          z          clear
     - osm(lgui)  home       pgup       pgdn       end        left                                                   down       up         right      osm(rgui)
-    -                                                        osl(symb)  osl(nav)   osl(nav)   osl(symb)
+    -                                                        osm(lctl)  osm(lalt)  osm(ralt)  osm(rctl)
     -                                                                   osm(lgui)  osm(rgui)
-    -                                             spc        osm(lctl)  osm(lalt)  osm(ralt)  osm(rctl)  spc
+    -                                             spc        osl(symb)  osl(nav)   osl(nav)   osl(symb)  spc
   nav:
     - _          _          _          _          _          _          _          _          _          _          _          _          _          _
     - _          _          lctl(home) pgup       lctl(end)  esc        _          _          bspc       lcbr       up         rcbr       _          _

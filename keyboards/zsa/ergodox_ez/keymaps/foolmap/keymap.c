@@ -6,6 +6,8 @@
 #define SYMB 2
 #define MOVE 3
 
+#define DIAG_B MT(MOD_RSFT, KC_B)
+#define DIAG_X MT(MOD_LSFT, KC_X)
 #define HOME_E MT(MOD_LALT, KC_E)
 #define HOME_H MT(MOD_RCTL, KC_H)
 #define HOME_N MT(MOD_RGUI, KC_N)
@@ -29,27 +31,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |@MOVE   |  A   |HOME_O|HOME_E|HOME_U|INDX_I|------|           |------|INDX_D|HOME_H|HOME_T|HOME_N|  S   |   @MOVE|
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |CLEAR   |  ;   |  Q   |  J   |  K   |  X   |^LSFT |           |^RSFT |  B   |  M   |  W   |  V   |  Z   |   CLEAR|
+ * |CLEAR   |  ;   |  Q   |  J   |  K   |DIAG_X|^LSFT |           |^RSFT |DIAG_B|  M   |  W   |  V   |  Z   |   CLEAR|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |^LGUI | HOME | PGUP | PGDN | END  |                                       | LEFT | DOWN |  UP  |RIGHT |^RGUI |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |@SYMB | @NAV |       | @NAV |@SYMB |
+ *                                        |^LCTL |^LALT |       |^RALT |^RCTL |
  *                                 ,------|------|------|       |------+------+------.
- *                                 | SPC  |^LCTL |^LGUI |       |^RGUI |^RCTL | SPC  |
+ *                                 | SPC  |@SYMB |^LGUI |       |^RGUI |@SYMB | SPC  |
  *                                 |      |      |------|       |------|      |      |
- *                                 |      |      |^LALT |       |^RALT |      |      |
+ *                                 |      |      | @NAV |       | @NAV |      |      |
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox_pretty(
-        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,          KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,      KC_0, KC_VOLU,
-        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,      KC_L, KC_VOLD,
-        OSL(MOVE),     KC_A,          HOME_O,        HOME_E,        HOME_U,        INDX_I,  INDX_D,        HOME_H,        HOME_T,   HOME_N,        KC_S, OSL(MOVE),
-        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,          KC_W, KC_V,      KC_Z, CLEAR,
-        OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
-        OSL(SYMB),     OSL(NAV),      OSL(NAV),      OSL(SYMB),
+        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,      KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,      KC_0, KC_VOLU,
+        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,      KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,      KC_L, KC_VOLD,
+        OSL(MOVE),     KC_A,          HOME_O,        HOME_E,        HOME_U,    INDX_I,  INDX_D,        HOME_H,        HOME_T,   HOME_N,        KC_S, OSL(MOVE),
+        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,      DIAG_X,  OSM(MOD_LSFT), OSM(MOD_RSFT), DIAG_B,   KC_M,          KC_W, KC_V,      KC_Z, CLEAR,
+        OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,    KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
+        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL),
         OSM(MOD_LGUI), OSM(MOD_RGUI),
-        KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC
+        KC_SPC,        OSL(SYMB),     OSL(NAV),      OSL(NAV),      OSL(SYMB), KC_SPC
 ),
 
 /* Keymap 1: nav
