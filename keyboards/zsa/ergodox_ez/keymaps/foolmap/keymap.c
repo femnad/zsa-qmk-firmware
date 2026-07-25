@@ -172,6 +172,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM;
     }
 }
+
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case QK_ONE_SHOT_MOD ... QK_ONE_SHOT_MOD_MAX:
+        case QK_ONE_SHOT_LAYER ... QK_ONE_SHOT_LAYER_MAX:
+            return TAPPING_TERM;
+        default:
+            return 0;
+    }
+}
 #endif
 
 void clear(void) {

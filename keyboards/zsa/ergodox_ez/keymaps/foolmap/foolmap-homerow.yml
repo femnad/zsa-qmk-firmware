@@ -13,7 +13,7 @@ header_definitions:
   oneshot_timeout: 3000
   chordal_hold:
   flow_tap_term: 150
-  quick_tap_term: 0
+  quick_tap_term_per_key:
   retro_tapping:
   tapping_term: 250
 
