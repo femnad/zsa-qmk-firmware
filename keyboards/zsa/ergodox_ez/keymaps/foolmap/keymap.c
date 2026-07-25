@@ -25,9 +25,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |^LGUI | HOME | PGUP | PGDN | END  |                                       | LEFT | DOWN |  UP  |RIGHT |^RGUI |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |@SYMB |^LGUI |       |^RGUI |@SYMB |
+ *                                        |@SYMB | @NAV |       | @NAV |@SYMB |
  *                                 ,------|------|------|       |------+------+------.
- *                                 | SPC  |^LCTL |^HYPR |       |^HYPR |^RCTL | SPC  |
+ *                                 | SPC  |^LCTL |^LGUI |       |^RGUI |^RCTL | SPC  |
  *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |^LALT |       |^RALT |      |      |
  *                                 `--------------------'       `--------------------'
@@ -38,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSL(MOVE),     KC_A,          KC_O,          KC_E,          KC_U,          KC_I,    KC_D,          KC_H,          KC_T,     KC_N,          KC_S, OSL(MOVE),
         CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,    OSM(MOD_LSFT), OSM(MOD_RSFT), KC_B,     KC_M,          KC_W, KC_V,      KC_Z, CLEAR,
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
-        OSL(SYMB),     OSM(MOD_LGUI), OSM(MOD_RGUI), OSL(SYMB),
-        OSM(MOD_HYPR), OSM(MOD_HYPR),
+        OSL(SYMB),     OSL(NAV),      OSL(NAV),      OSL(SYMB),
+        OSM(MOD_LGUI), OSM(MOD_RGUI),
         KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC
 ),
 
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
- *                                 | >NAV |      |      |       |      |      | >NAV |
+ *                                 |      |      |      |       |      |      |      |
  *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______,
         _______, _______,
-        MO(NAV), _______, _______, _______, _______, MO(NAV)
+        _______, _______, _______, _______, _______, _______
 ),
 
 /* Keymap 2: move
