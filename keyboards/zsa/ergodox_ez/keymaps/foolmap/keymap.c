@@ -29,9 +29,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
  * |MPLY    |  '   |  ,   |  .   |  P   |  Y   | TAB  |           | ENT  |  F   |  G   |  C   |  R   |  L   |    VOLD|
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |@MOVE   |  A   |HOME_O|HOME_E|HOME_U|INDX_I|------|           |------|INDX_D|HOME_H|HOME_T|HOME_N|  S   |   @MOVE|
+ * |CLEAR   |  A   |HOME_O|HOME_E|HOME_U|INDX_I|------|           |------|INDX_D|HOME_H|HOME_T|HOME_N|  S   |   CLEAR|
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |CLEAR   |  ;   |  Q   |  J   |  K   |DIAG_X|^LSFT |           |^RSFT |DIAG_B|  M   |  W   |  V   |  Z   |   CLEAR|
+ * |MPRV    |  ;   |  Q   |  J   |  K   |DIAG_X|^LSFT |           |^RSFT |DIAG_B|  M   |  W   |  V   |  Z   |    MNXT|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |^LGUI | HOME | PGUP | PGDN | END  |                                       | LEFT | DOWN |  UP  |RIGHT |^RGUI |
  *   `----------------------------------'                                       `----------------------------------'
@@ -44,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox_pretty(
-        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,      KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,      KC_0, KC_VOLU,
-        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,      KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,      KC_L, KC_VOLD,
-        OSL(MOVE),     KC_A,          HOME_O,        HOME_E,        HOME_U,    INDX_I,  INDX_D,        HOME_H,        HOME_T,   HOME_N,        KC_S, OSL(MOVE),
-        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,      DIAG_X,  OSM(MOD_LSFT), OSM(MOD_RSFT), DIAG_B,   KC_M,          KC_W, KC_V,      KC_Z, CLEAR,
+        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,      KC_5,    KC_ESC,        KC_BSPC,       KC_6,     KC_7,          KC_8, KC_9,  KC_0, KC_VOLU,
+        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,      KC_Y,    KC_TAB,        KC_ENT,        KC_F,     KC_G,          KC_C, KC_R,  KC_L, KC_VOLD,
+        CLEAR,         KC_A,          HOME_O,        HOME_E,        HOME_U,    INDX_I,  INDX_D,        HOME_H,        HOME_T,   HOME_N,        KC_S, CLEAR,
+        KC_MPRV,       KC_SCLN,       KC_Q,          KC_J,          KC_K,      DIAG_X,  OSM(MOD_LSFT), OSM(MOD_RSFT), DIAG_B,   KC_M,          KC_W, KC_V,  KC_Z, KC_MNXT,
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,    KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
         OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL),
         OSM(MOD_LGUI), OSM(MOD_RGUI),
@@ -89,9 +89,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  | F10  |        |
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |MPRV    |  !   |  @   |  #   |  $   |  %   |      |           |      |  ^   |  &   |  *   | F11  | F12  |        |
+ * |        |  !   |  @   |  #   |  $   |  %   |      |           |      |  ^   |  &   |  *   | F11  | F12  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |MNXT    |  {   |  }   |  (   |  )   |  =   |------|           |------|  /   |  -   |  _   |  [   |  ]   |        |
+ * |        |  {   |  }   |  (   |  )   |  =   |------|           |------|  /   |  -   |  _   |  [   |  ]   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |  ~   |  |   |  `   |      |           |      |  \   |  +   | DEL  | INS  |  \   |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -107,8 +107,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [SYMB] = LAYOUT_ergodox_pretty(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-        KC_MPRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_F11,  KC_F12,  _______,
-        KC_MNXT, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_EQL,  KC_SLSH, KC_MINS, KC_UNDS, KC_LBRC, KC_RBRC, _______,
+        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_F11,  KC_F12,  _______,
+        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_EQL,  KC_SLSH, KC_MINS, KC_UNDS, KC_LBRC, KC_RBRC, _______,
         _______, _______, _______, KC_TILD, KC_PIPE, KC_GRV,  _______, _______, KC_BSLS, KC_PLUS, KC_DEL,  KC_INS,  KC_BSLS, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______,

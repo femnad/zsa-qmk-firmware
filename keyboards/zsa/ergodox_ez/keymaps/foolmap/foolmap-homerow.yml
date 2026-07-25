@@ -33,8 +33,8 @@ layouts:
   base:
     - mute       1          2          3          4          5          esc        bspc       6          7          8          9          0          volu
     - mply       quot       comm       dot        p          y          tab        ent        f          g          c          r          l          vold
-    - osl(move)  a          home_o     home_e     home_u     indx_i                           indx_d     home_h     home_t     home_n     s          osl(move)
-    - clear      scln       q          j          k          diag_x     osm(lsft)  osm(rsft)  diag_b     m          w          v          z          clear
+    - clear      a          home_o     home_e     home_u     indx_i                           indx_d     home_h     home_t     home_n     s          clear
+    - mprv       scln       q          j          k          diag_x     osm(lsft)  osm(rsft)  diag_b     m          w          v          z          mnxt
     - osm(lgui)  home       pgup       pgdn       end        left                                                   down       up         right      osm(rgui)
     -                                                        osm(lctl)  osm(lalt)  osm(ralt)  osm(rctl)
     -                                                                   osm(lgui)  osm(rgui)
@@ -50,8 +50,8 @@ layouts:
     -                                             _          _          _          _          _          _
   symb:
     - _          f1         f2         f3         f4         f5         _          _          f6         f7         f8         f9         f10        _
-    - mprv       exlm       at         hash       dlr        perc       _          _          circ       ampr       astr       f11        f12        _
-    - mnxt       lcbr       rcbr       lprn       rprn       eql                              slsh       mins       unds       lbrc       rbrc       _
+    - _          exlm       at         hash       dlr        perc       _          _          circ       ampr       astr       f11        f12        _
+    - _          lcbr       rcbr       lprn       rprn       eql                              slsh       mins       unds       lbrc       rbrc       _
     - _          _          _          tild       pipe       grv        _          _          bsls       plus       del        ins        bsls       _
     - _          _          _          _          _          _                                                      _          _          _          _
     -                                                        _          _          _          _
