@@ -4,6 +4,7 @@
 #define BASE 0
 #define SYMB 1
 #define MOVE 2
+#define NAV 3
 
 enum custom_keycodes {
   CLEAR = SAFE_RANGE
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |      |
+ *                                 | >NAV |      |      |       |      |      | >NAV |
  *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
@@ -70,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______,
         _______, _______,
-        _______, _______, _______, _______, _______, _______
+        MO(NAV), _______, _______, _______, _______, MO(NAV)
 ),
 
 /* Keymap 2: move
@@ -95,37 +96,63 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [MOVE] = LAYOUT_ergodox_pretty(
         _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______,
-        _______, _______, KC_WH_D,  KC_MS_U, KC_WH_U, KC_PGUP, _______, _______, KC_BTN2, KC_ACL0,  KC_UP,   KC_ACL1, KC_ACL2, _______,
-        _______, _______, KC_MS_L,  KC_MS_D, KC_MS_R, KC_PGDN, KC_BTN1, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
-        _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, _______, _______, QK_BOOT, KC_WH_L,  KC_WH_R, _______, RGB_TOG, _______,
+        _______, _______, MS_WHLD,  MS_UP,   MS_WHLU, KC_PGUP, _______, _______, MS_BTN2, KC_ACL0,  KC_UP,   KC_ACL1, KC_ACL2, _______,
+        _______, _______, MS_LEFT,  MS_DOWN, MS_RGHT, KC_PGDN, MS_BTN1, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
+        _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, _______, _______, QK_BOOT, MS_WHLL,  MS_WHLR, _______, RGB_TOG, _______,
         _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______,  _______,
         _______, _______,
         _______, _______, _______,  _______, _______, _______
 ),
 
+/* Keymap 3: nav
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
+ * |        |      |C-HOME| PGUP |C-END |      |      |           |      |      |  {   |  UP  |  }   |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      | HOME | PGDN | END  |      |------|           |------|      | LEFT | DOWN |RIGHT |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[NAV] = LAYOUT_ergodox_pretty(
+        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______,  _______, _______, _______, _______,
+        _______, _______, LCTL(KC_HOME), KC_PGUP, LCTL(KC_END), _______, _______, _______, _______, KC_LCBR,  KC_UP,   KC_RCBR, _______, _______,
+        _______, _______, KC_HOME,       KC_PGDN, KC_END,       _______, _______, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
+        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______,  _______, _______, _______, _______,
+        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______,
+        _______, _______, _______,       _______,
+        _______, _______,
+        _______, _______, _______,       _______, _______,      _______
+),
+
 };
 
-#define LEFT_SHIFT_INDEX 31
-#define RIGHT_SHIFT_INDEX 67
-#define LEFT_CTRL_INDEX 33
-#define RIGHT_CTRL_INDEX 69
-#define LEFT_ALT_INDEX 34
-#define RIGHT_ALT_INDEX 70
-#define LEFT_GUI_INDEX 4
-#define RIGHT_GUI_INDEX 40
+void clear() {
+  clear_oneshot_mods();
+  clear_oneshot_locked_mods();
+  clear_keyboard();
+  reset_oneshot_layer();
+  layer_clear();
+  layer_on(BASE);
+  rgb_matrix_set_color_all(0, 0, 0);
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
       case CLEAR:
-        clear_oneshot_mods();
-        clear_oneshot_locked_mods();
-        clear_keyboard();
-        reset_oneshot_layer();
-        layer_clear();
-        layer_on(BASE);
-        rgb_matrix_set_color_all(0, 0, 0);
+        clear();
         return false;
     }
  }
@@ -151,47 +178,35 @@ bool rgb_matrix_indicators_user(void) {
   uint8_t locked_mods = get_oneshot_locked_mods();
 
   if (mods & MOD_MASK_SHIFT) {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 0);
+    rgb_matrix_set_color_all(128, 0, 0);
   } else if (locked_mods & MOD_MASK_SHIFT) {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 0);
+    rgb_matrix_set_color_all(255, 0, 0);
   } else {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 0, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color_all(0, 0, 0);
   }
 
   if (mods & MOD_MASK_CTRL) {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 128, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 128, 0);
+    rgb_matrix_set_color_all(0, 128, 0);
   } else if (locked_mods & MOD_MASK_CTRL) {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 255, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 255, 0);
+    rgb_matrix_set_color_all(0, 255, 0);
   } else {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 0, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 0, 0);
+    rgb_matrix_set_color_all(0, 0, 0);
   }
 
   if (mods & MOD_MASK_ALT) {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 128);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 128);
+    rgb_matrix_set_color_all(0, 0, 128);
   } else if (locked_mods & MOD_MASK_ALT) {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 255);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 255);
+    rgb_matrix_set_color_all(0, 0, 255);
   } else {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 0);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 0);
+    rgb_matrix_set_color_all(0, 0, 0);
   }
 
   if (mods & MOD_MASK_GUI) {
-    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 100, 200);
-    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 100, 200);
+    rgb_matrix_set_color_all(0, 100, 200);
   } else if (locked_mods & MOD_MASK_GUI) {
-    rgb_matrix_set_color(LEFT_GUI_INDEX, 100, 200, 255);
-    rgb_matrix_set_color(RIGHT_GUI_INDEX, 100, 200, 255);
+    rgb_matrix_set_color_all(100, 200, 255);
   } else {
-    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 0, 0);
-    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 0, 0);
+    rgb_matrix_set_color_all(0, 0, 0);
   }
 
   return true;
