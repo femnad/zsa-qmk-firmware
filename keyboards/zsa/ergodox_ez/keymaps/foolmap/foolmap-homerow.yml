@@ -38,7 +38,7 @@ layouts:
     - osm(lgui)  home       pgup       pgdn       end        left                                                   down       up         right      osm(rgui)
     -                                                        osm(lctl)  osm(lalt)  osm(ralt)  osm(rctl)
     -                                                                   osm(lgui)  osm(rgui)
-    -                                             spc        osl(symb)  osl(nav)   osl(nav)   osl(symb)  spc
+    -                                             spc        osl(symb)  osl(move)  osl(move)  osl(symb)  spc
   nav:
     - _          _          _          _          _          _          _          _          _          _          _          _          _          _
     - _          _          lctl(home) pgup       lctl(end)  esc        _          _          bspc       lcbr       up         rcbr       _          _

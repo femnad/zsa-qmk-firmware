@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 | SPC  |@SYMB |^LGUI |       |^RGUI |@SYMB | SPC  |
  *                                 |      |      |------|       |------|      |      |
- *                                 |      |      | @NAV |       | @NAV |      |      |
+ *                                 |      |      |@MOVE |       |@MOVE |      |      |
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox_pretty(
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,    KC_LEFT, KC_DOWN,       KC_UP,         KC_RIGHT, OSM(MOD_RGUI),
         OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL),
         OSM(MOD_LGUI), OSM(MOD_RGUI),
-        KC_SPC,        OSL(SYMB),     OSL(NAV),      OSL(NAV),      OSL(SYMB), KC_SPC
+        KC_SPC,        OSL(SYMB),     OSL(MOVE),     OSL(MOVE),     OSL(SYMB), KC_SPC
 ),
 
 /* Keymap 1: nav
