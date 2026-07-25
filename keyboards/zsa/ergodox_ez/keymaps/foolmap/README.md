@@ -5,20 +5,20 @@
 To compile the firmware for ErgoDox EZ (m32u4 base), run:
 
 ```bash
-make zsa/ergodox_ez/m32u4/base:foolmap
+qmk compile -kb zsa/ergodox_ez/m32u4/base -km foolmap
 ```
 
 To compile and flash in one step:
 
 ```bash
-make zsa/ergodox_ez/m32u4/base:foolmap:flash
+qmk flash -kb zsa/ergodox_ez/m32u4/base -km foolmap
 ```
 
 *Note: Replace `m32u4/base` with your specific model (e.g., `m32u4/glow`, `stm32/base`) if needed.*
 
 ## Setup Requirements
 
-If the `make` command fails with "No rule to make target", ensure your environment is set up:
+If the `qmk` command fails, ensure your environment is set up:
 
 1. **Install Python dependencies**:
    ```bash
