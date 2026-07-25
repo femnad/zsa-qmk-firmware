@@ -1,0 +1,63 @@
+custom_keys:
+  - clear
+
+header_definitions:
+  mk_3_speed:
+  mk_c_offset_0 8:
+  mk_c_offset_1: 16
+  mk_c_offset_2: 32
+  mk_w_interval_0: 120
+  mk_w_interval_1: 80
+  mk_w_interval_2: 40
+  oneshot_tap_toggle: 2
+  oneshot_timeout: 3000
+  chordal_hold:
+  quick_tap_term: 0
+  retro_tapping:
+  tapping_term: 250
+
+custom_definitions:
+  home_e: mt(mod_lalt, kc_e)
+  home_h: mt(mod_rctl, kc_h)
+  home_n: mt(mod_rgui, kc_n)
+  home_o: mt(mod_lgui, kc_o)
+  home_t: mt(mod_ralt, kc_t)
+  home_u: mt(mod_lctl, kc_u)
+
+layouts:
+  base:
+    - mute       1          2          3          4          5          esc        bspc       6          7          8          9          0          volu
+    - mply       quot       comm       dot        p          y          tab        ent        f          g          c          r          l          vold
+    - osl(move)  a          home_o     home_e     home_u     i                                d          home_h     home_t     home_n     s          osl(move)
+    - clear      scln       q          j          k          x          osm(lsft)  osm(rsft)  b          m          w          v          z          clear
+    - osm(lgui)  home       pgup       pgdn       end        left                                                   down       up         right      osm(rgui)
+    -                                                        osl(symb)  osl(nav)   osl(nav)   osl(symb)
+    -                                                                   osm(lgui)  osm(rgui)
+    -                                             spc        osm(lctl)  osm(lalt)  osm(ralt)  osm(rctl)  spc
+  symb:
+    - _          f1         f2         f3         f4         f5         _          _          f6         f7         f8         f9         f10        _
+    - mprv       exlm       at         hash       dlr        perc       _          _          circ       ampr       astr       f11        f12        _
+    - mnxt       lcbr       rcbr       lprn       rprn       eql                              slsh       mins       unds       lbrc       rbrc       _
+    - _          _          _          tild       pipe       grv        _          _          bsls       plus       del        ins        bsls       _
+    - _          _          _          _          _          _                                                      _          _          _          _
+    -                                                        _          _          _          _
+    -                                                                   _          _
+    -                                             mo(nav)    _          _          _          _          mo(nav)
+  move:
+    - _          _          _          _          _          _          _          _          _          _          _          _          _          _
+    - _          _          wh_d       ms_u       wh_u       pgup       _          _          btn2       acl0       up         acl1       acl2       _
+    - _          _          ms_l       ms_d       ms_r       pgdn                             btn1       left       down       right      _          _
+    - _          rgb_mod    rgb_rmod   home       end        qk_boot    _          _          qk_boot    wh_l       wh_r       _          rgb_tog    _
+    - _          _          _          _          _          _                                                      _          _          _          _
+    -                                                        _          _          _          _
+    -                                                                   _          _
+    -                                             _          _          _          _          _          _
+  nav:
+    - _          _          _          _          _          _          _          _          _          _          _          _          _          _
+    - _          _          lctl(home) pgup       lctl(end)  _          _          _          _          lcbr       up         rcbr       _          _
+    - _          _          home       pgdn       end        _                                _          left       down       right      _          _
+    - _          _          _          _          _          _          _          _          _          _          _          _          _          _
+    - _          _          _          _          _          _                                                      _          _          _          _
+    -                                                        _          _          _          _
+    -                                                                   _          _
+    -                                             _          _          _          _          _          _
