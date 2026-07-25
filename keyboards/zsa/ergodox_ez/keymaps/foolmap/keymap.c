@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-void clear() {
+void clear(void) {
   clear_oneshot_mods();
   clear_oneshot_locked_mods();
   clear_keyboard();
