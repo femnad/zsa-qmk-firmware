@@ -30,7 +30,7 @@ layouts:
     - _          _          _          _          _          _                                                      _          _          _          _
     -                                                        _          _          _          _
     -                                                                   _          _
-    -                                             _          _          _          _          _          _
+    -                                             mo(nav)    _          _          _          _          mo(nav)
   move:
     - _          _          _          _          _          _          _          _          _          _          _          _          _          _
     - _          _          wh_d       ms_u       wh_u       pgup       _          _          btn2       acl0       up         acl1       acl2       _
