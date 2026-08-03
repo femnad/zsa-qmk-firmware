@@ -4,8 +4,18 @@
 #define BASE 0
 #define SYMB 1
 #define MOVE 2
-#define NAV 3
+#define INDX 3
 
+#define DIAG_B MT(MOD_RSFT, KC_B)
+#define DIAG_X MT(MOD_LSFT, KC_X)
+#define HOME_E MT(MOD_LALT, KC_E)
+#define HOME_H MT(MOD_RCTL, KC_H)
+#define HOME_N MT(MOD_RGUI, KC_N)
+#define HOME_O MT(MOD_LGUI, KC_O)
+#define HOME_T MT(MOD_RALT, KC_T)
+#define HOME_U MT(MOD_LCTL, KC_U)
+#define INDX_I LT(INDX, KC_I)
+#define INDX_D LT(INDX, KC_D)
 #define LEFT_SHIFT_INDEX 31
 #define RIGHT_SHIFT_INDEX 67
 #define LEFT_CTRL_INDEX 33
@@ -27,23 +37,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * | MPLY  |   '   |   ,   |   .   |   P   |   Y   |  TAB  |  ENT  |   F   |   G   |   C   |   R   |   L   | VOLD  |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * | @MOVE |   A   |   O   |   E   |   U   |   I   | ^LSFT | ^RSFT |   D   |   H   |   T   |   N   |   S   | @MOVE |
+ * | @MOVE |   A   | HOMEO | HOMEE | HOMEU | INDXI | ^LSFT | ^RSFT | INDXD | HOMEH | HOMET | HOMEN |   S   | @MOVE |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * | CLEAR |   ;   |   Q   |   J   |   K   |   X   |               |   B   |   M   |   W   |   V   |   Z   | CLEAR |
+ * | CLEAR |   ;   |   Q   |   J   |   K   | DIAGX |               | DIAGB |   M   |   W   |   V   |   Z   | CLEAR |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * | ^LGUI | HOME  | PGUP  | PGDN  |  END  | @SYMB |               | @SYMB | LEFT  | DOWN  |  UP   | RIGHT | ^RGUI |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
- *                         |  SPC  | ^LCTL | ^LALT |               | ^RALT | ^RCTL |  SPC  |
+ *                         |  SPC  | @SYMB | @MOVE |               | @MOVE | @SYMB |  SPC  |
  *                         +-------+-------+-------+               +-------+-------+-------+
  */
 
 [BASE] = LAYOUT_moonlander(
-        KC_MUTE,       KC_1,          KC_2,          KC_3,          KC_4,          KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,  KC_8,     KC_9,          KC_0, KC_VOLU,
-        KC_MPLY,       KC_QUOT,       KC_COMM,       KC_DOT,        KC_P,          KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,  KC_C,     KC_R,          KC_L, KC_VOLD,
-        OSL(MOVE),     KC_A,          KC_O,          KC_E,          KC_U,          KC_I,      OSM(MOD_LSFT), OSM(MOD_RSFT), KC_D,    KC_H,  KC_T,     KC_N,          KC_S, OSL(MOVE),
-        CLEAR,         KC_SCLN,       KC_Q,          KC_J,          KC_K,          KC_X,      KC_B,          KC_M,          KC_W,    KC_V,  KC_Z,     CLEAR,
-        OSM(MOD_LGUI), KC_HOME,       KC_PGUP,       KC_PGDN,       KC_END,        OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP, KC_RIGHT, OSM(MOD_RGUI),
-        KC_SPC,        OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_RALT), OSM(MOD_RCTL), KC_SPC
+        KC_MUTE,       KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,   KC_8,     KC_9,          KC_0, KC_VOLU,
+        KC_MPLY,       KC_QUOT,   KC_COMM,   KC_DOT,    KC_P,      KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,   KC_C,     KC_R,          KC_L, KC_VOLD,
+        OSL(MOVE),     KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I,    OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,        KC_S, OSL(MOVE),
+        CLEAR,         KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X,    DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     CLEAR,
+        OSM(MOD_LGUI), KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, OSM(MOD_RGUI),
+        KC_SPC,        OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
 ),
 
 /* Layer: SYMB
@@ -58,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * |       |       |       |       |       |       |               |       |       |       |       |       |       |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
- *                         | >NAV  |       |       |               |       |       | >NAV  |
+ *                         |       |       |       |               |       |       |       |
  *                         +-------+-------+-------+               +-------+-------+-------+
  */
 
@@ -68,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MNXT, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_EQL,  _______, _______, KC_SLSH, KC_MINS, KC_UNDS, KC_LBRC, KC_RBRC, KC_WFWD,
         _______, _______, _______, KC_TILD, KC_PIPE, KC_GRV,  KC_BSLS, KC_PLUS, KC_DEL,  KC_INS,  KC_BSLS, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        MO(NAV), _______, _______, _______, _______, MO(NAV)
+        _______, _______, _______, _______, _______, _______
 ),
 
 /* Layer: MOVE
@@ -96,15 +106,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,  _______, _______, _______
 ),
 
-/* Layer: NAV
+/* Layer: INDX
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * |       |       |C-HOME | PGUP  | C-END |       |       |       |       |   {   |  UP   |   }   |       |       |
+ * |       |       | BTN2  |  MSU  | BTN1  |  ESC  |       |       | BSPC  | HOME  |  UP   |  END  |       |       |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * |       |       | HOME  | PGDN  |  END  |       |       |       |       | LEFT  | DOWN  | RIGHT |       |       |
+ * |       |       |  MSL  |  MSD  |  MSR  |  TAB  |       |       |  ENT  | LEFT  | DOWN  | RIGHT |       |       |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * |       |       |       |       |       |       |               |       |       |       |       |       |       |
+ * |       |       |       |       |       |       |               |       |  WHD  |  WHU  |       |       |       |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * |       |       |       |       |       |       |               |       |       |       |       |       |       |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
@@ -112,13 +122,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                         +-------+-------+-------+               +-------+-------+-------+
  */
 
-[NAV] = LAYOUT_moonlander(
-        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______, _______, _______,  _______, _______,
-        _______, _______, LCTL(KC_HOME), KC_PGUP, LCTL(KC_END), _______, _______, _______, _______, KC_LCBR, KC_UP,   KC_RCBR,  _______, _______,
-        _______, _______, KC_HOME,       KC_PGDN, KC_END,       _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
-        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______,       _______, _______,      _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______,       _______, _______,      _______
+[INDX] = LAYOUT_moonlander(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
+        _______, _______, MS_BTN2, MS_UP,   MS_BTN1, KC_ESC,  _______, _______, KC_BSPC, KC_HOME, KC_UP,   KC_END,   _______, _______,
+        _______, _______, MS_LEFT, MS_DOWN, MS_RGHT, KC_TAB,  _______, _______, KC_ENT,  KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, MS_WHLD, MS_WHLU, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______
 ),
 
 };
