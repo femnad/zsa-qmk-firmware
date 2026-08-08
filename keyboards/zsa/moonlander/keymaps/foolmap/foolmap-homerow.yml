@@ -43,7 +43,7 @@ layouts:
     - mply            quot            comm            dot             p               y               tab             ent             f               g               c               r               l               vold
     - clear           a               home_o          home_e          home_u          indx_i          osm(lsft)       osm(rsft)       indx_d          home_h          home_t          home_n          s               clear
     - mo(move)        scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mo(move)
-    - lgui            home            pgup            pgdn            end             clear                                           clear           left            down            up              right           rgui
+    - kc_lgui         home            pgup            pgdn            end             clear                                           clear           left            down            up              right           kc_rgui
     -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
   symb:
     - mprv            f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             wbak

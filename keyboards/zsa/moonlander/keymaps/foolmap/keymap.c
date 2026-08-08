@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MPLY,  KC_QUOT,   KC_COMM,   KC_DOT,    KC_P,      KC_Y,   KC_TAB,        KC_ENT,        KC_F,    KC_G,   KC_C,     KC_R,     KC_L, KC_VOLD,
         CLEAR,    KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I, OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,   KC_S, CLEAR,
         MO(MOVE), KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X, DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     MO(MOVE),
-        MOD_LGUI, KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    CLEAR,  CLEAR,         KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, MOD_RGUI,
+        KC_LGUI,  KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    CLEAR,  CLEAR,         KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, KC_RGUI,
         KC_SPC,   OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
 ),
 
