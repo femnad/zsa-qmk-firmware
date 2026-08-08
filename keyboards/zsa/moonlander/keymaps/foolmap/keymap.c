@@ -41,19 +41,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * | >MOVE |   ;   |   Q   |   J   |   K   | DIAGX |               | DIAGB |   M   |   W   |   V   |   Z   | >MOVE |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
- * | ^LGUI | HOME  | PGUP  | PGDN  |  END  | @SYMB |               | @SYMB | LEFT  | DOWN  |  UP   | RIGHT | ^RGUI |
+ * | LGUI  | HOME  | PGUP  | PGDN  |  END  | CLEAR |               | CLEAR | LEFT  | DOWN  |  UP   | RIGHT | RGUI  |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  *                         |  SPC  | @SYMB | @MOVE |               | @MOVE | @SYMB |  SPC  |
  *                         +-------+-------+-------+               +-------+-------+-------+
  */
 
 [BASE] = LAYOUT_moonlander(
-        KC_MUTE,       KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,   KC_8,     KC_9,          KC_0, KC_VOLU,
-        KC_MPLY,       KC_QUOT,   KC_COMM,   KC_DOT,    KC_P,      KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,   KC_C,     KC_R,          KC_L, KC_VOLD,
-        CLEAR,         KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I,    OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,        KC_S, CLEAR,
-        MO(MOVE),      KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X,    DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     MO(MOVE),
-        OSM(MOD_LGUI), KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, OSM(MOD_RGUI),
-        KC_SPC,        OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
+        KC_MUTE,  KC_1,      KC_2,      KC_3,      KC_4,      KC_5,   KC_ESC,        KC_BSPC,       KC_6,    KC_7,   KC_8,     KC_9,     KC_0, KC_VOLU,
+        KC_MPLY,  KC_QUOT,   KC_COMM,   KC_DOT,    KC_P,      KC_Y,   KC_TAB,        KC_ENT,        KC_F,    KC_G,   KC_C,     KC_R,     KC_L, KC_VOLD,
+        CLEAR,    KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I, OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,   KC_S, CLEAR,
+        MO(MOVE), KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X, DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     MO(MOVE),
+        MOD_LGUI, KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    CLEAR,  CLEAR,         KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, MOD_RGUI,
+        KC_SPC,   OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
 ),
 
 /* Layer: SYMB
@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______,  _______, _______, _______, _______,            _______,      _______, _______, _______, _______, _______,
         _______, _______, _______, MS_UP,    _______, MS_WHLU, _______, _______,            KC_BTN5,      KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,
         _______, _______, MS_LEFT, MS_DOWN,  MS_RGHT, MS_WHLD, _______, _______,            KC_BTN4,      MS_BTN1, KC_BTN3, MS_BTN2, _______, _______,
-        _______, QK_BOOT, RGB_MOD, RGB_RMOD, _______, CW_TOGG, CW_TOGG, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), RGB_TOG, QK_BOOT, _______,
+        _______, QK_BOOT, RGB_MOD, RGB_RMOD, _______, CW_TOGG, CW_TOGG, RCTL(RSFT(KC_TAB)), RCTL(KC_TAB), RGB_TOG, QK_BOOT, _______,
         _______, _______, _______, _______,  _______, _______, _______, _______,            _______,      _______, _______, _______,
         _______, _______, _______, _______,  _______, _______
 ),

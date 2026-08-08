@@ -43,7 +43,7 @@ layouts:
     - mply            quot            comm            dot             p               y               tab             ent             f               g               c               r               l               vold
     - clear           a               home_o          home_e          home_u          indx_i          osm(lsft)       osm(rsft)       indx_d          home_h          home_t          home_n          s               clear
     - mo(move)        scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mo(move)
-    - osm(lgui)       home            pgup            pgdn            end             osl(symb)                                       osl(symb)       left            down            up              right           osm(rgui)
+    - lgui            home            pgup            pgdn            end             clear                                           clear           left            down            up              right           rgui
     -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
   symb:
     - mprv            f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             wbak
@@ -56,7 +56,7 @@ layouts:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
     - _               _               _               ms_u            _               wh_u            _               _               btn5            acl0            acl1            acl2            _               _
     - _               _               ms_l            ms_d            ms_r            wh_d            _               _               btn4            btn1            btn3            btn2            _               _
-    - _               qk_boot         rgb_mod         rgb_rmod        _               cw_togg                                         cw_togg         lctl(lsft(tab)) lctl(tab)       rgb_tog         qk_boot         _
+    - _               qk_boot         rgb_mod         rgb_rmod        _               cw_togg                                         cw_togg         rctl(rsft(tab)) rctl(tab)       rgb_tog         qk_boot         _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
   indx:
