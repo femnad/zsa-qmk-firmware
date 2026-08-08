@@ -46,23 +46,23 @@ layouts:
     - osm(lgui)       home            pgup            pgdn            end             osl(symb)                                       osl(symb)       left            down            up              right           osm(rgui)
     -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
   symb:
-    - _               f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             _
-    - mprv            exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             wbak
-    - mnxt            lcbr            rcbr            lprn            rprn            eql             _               _               slsh            mins            unds            lbrc            rbrc            wfwd
+    - mprv            f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             wbak
+    - mnxt            exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             wfwd
+    - _               lcbr            rcbr            lprn            rprn            eql             _               _               slsh            mins            unds            lbrc            rbrc            _
     - _               _               _               tild            pipe            grv                                             bsls            plus            del             ins             bsls            _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
   move:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
-    - _               _               wh_d            ms_u            wh_u            pgup            _               _               btn2            acl0            up              acl1            acl2            _
-    - _               _               ms_l            ms_d            ms_r            pgdn            _               _               btn1            left            down            right           _               _
-    - _               rgb_mod         rgb_rmod        home            end             qk_boot                                         qk_boot         lctl(lsft(tab)) lctl(tab)       _               rgb_tog         _
+    - _               _               _               ms_u            _               wh_u            _               _               btn5            acl0            acl1            acl2            _               _
+    - _               _               ms_l            ms_d            ms_r            wh_d            _               _               btn4            btn1            btn3            btn2            _               _
+    - _               qk_boot         rgb_mod         rgb_rmod        _               cw_togg                                         cw_togg         lctl(lsft(tab)) lctl(tab)       rgb_tog         qk_boot         _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
   indx:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
-    - _               _               btn2            ms_u            btn1            esc             _               _               bspc            home            up              end             _               _
-    - _               _               ms_l            ms_d            ms_r            tab             _               _               ent             left            down            right           _               _
-    - _               _               _               _               _               _                                               _               wh_d            wh_u            _               _               _
+    - _               _               _               pgup            _               esc             _               _               bspc            _               up              _               _               _
+    - _               _               home            pgdn            end             tab             _               _               ent             left            down            right           _               _
+    - _               _               _               _               _               _                                               _               _               _               _               _               _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
