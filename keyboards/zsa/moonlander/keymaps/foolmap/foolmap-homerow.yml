@@ -39,30 +39,30 @@ custom_definitions:
 
 layouts:
   base:
-    - mute      1         2         3         4         5         esc       bspc      6         7         8         9         0         volu
-    - mply      quot      comm      dot       p         y         tab       ent       f         g         c         r         l         vold
-    - osl(move) a         home_o    home_e    home_u    indx_i    osm(lsft) osm(rsft) indx_d    home_h    home_t    home_n    s         osl(move)
-    - clear     scln      q         j         k         diag_x                        diag_b    m         w         v         z         clear
-    - osm(lgui) home      pgup      pgdn      end       osl(symb)                     osl(symb) left      down      up        right     osm(rgui)
-    -                               spc       osl(symb) osl(move)                     osl(move) osl(symb) spc
+    - mute            1               2               3               4               5               esc             bspc            6               7               8               9               0               volu
+    - mply            quot            comm            dot             p               y               tab             ent             f               g               c               r               l               vold
+    - clear           a               home_o          home_e          home_u          indx_i          osm(lsft)       osm(rsft)       indx_d          home_h          home_t          home_n          s               clear
+    - mo(move)        scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mo(move)
+    - osm(lgui)       home            pgup            pgdn            end             osl(symb)                                       osl(symb)       left            down            up              right           osm(rgui)
+    -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
   symb:
-    - _         f1        f2        f3        f4        f5        _         _         f6        f7        f8        f9        f10       _
-    - mprv      exlm      at        hash      dlr       perc      _         _         circ      ampr      astr      f11       f12       wbak
-    - mnxt      lcbr      rcbr      lprn      rprn      eql       _         _         slsh      mins      unds      lbrc      rbrc      wfwd
-    - _         _         _         tild      pipe      grv                           bsls      plus      del       ins       bsls      _
-    - _         _         _         _         _         _                             _         _         _         _         _         _
-    -                               _         _         _                             _         _         _
+    - _               f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             _
+    - mprv            exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             wbak
+    - mnxt            lcbr            rcbr            lprn            rprn            eql             _               _               slsh            mins            unds            lbrc            rbrc            wfwd
+    - _               _               _               tild            pipe            grv                                             bsls            plus            del             ins             bsls            _
+    - _               _               _               _               _               _                                               _               _               _               _               _               _
+    -                                                 _               _               _                                               _               _               _
   move:
-    - _         _         _         _         _         _         _         _         _         _         _         _         _         _
-    - _         _         wh_d      ms_u      wh_u      pgup      _         _         btn2      acl0      up        acl1      acl2      _
-    - _         _         ms_l      ms_d      ms_r      pgdn      _         _         btn1      left      down      right     _         _
-    - _         rgb_mod   rgb_rmod  home      end       qk_boot                       qk_boot   wh_l      wh_r      _         rgb_tog   _
-    - _         _         _         _         _         _                             _         _         _         _         _         _
-    -                               _         _         _                             _         _         _
+    - _               _               _               _               _               _               _               _               _               _               _               _               _               _
+    - _               _               wh_d            ms_u            wh_u            pgup            _               _               btn2            acl0            up              acl1            acl2            _
+    - _               _               ms_l            ms_d            ms_r            pgdn            _               _               btn1            left            down            right           _               _
+    - _               rgb_mod         rgb_rmod        home            end             qk_boot                                         qk_boot         lctl(lsft(tab)) lctl(tab)       _               rgb_tog         _
+    - _               _               _               _               _               _                                               _               _               _               _               _               _
+    -                                                 _               _               _                                               _               _               _
   indx:
-    - _         _         _         _         _         _         _         _         _         _         _         _         _         _
-    - _         _         btn2      ms_u      btn1      esc       _         _         bspc      home      up        end       _         _
-    - _         _         ms_l      ms_d      ms_r      tab       _         _         ent       left      down      right     _         _
-    - _         _         _         _         _         _                             _         wh_d      wh_u      _         _         _
-    - _         _         _         _         _         _                             _         _         _         _         _         _
-    -                               _         _         _                             _         _         _
+    - _               _               _               _               _               _               _               _               _               _               _               _               _               _
+    - _               _               btn2            ms_u            btn1            esc             _               _               bspc            home            up              end             _               _
+    - _               _               ms_l            ms_d            ms_r            tab             _               _               ent             left            down            right           _               _
+    - _               _               _               _               _               _                                               _               wh_d            wh_u            _               _               _
+    - _               _               _               _               _               _                                               _               _               _               _               _               _
+    -                                                 _               _               _                                               _               _               _

@@ -37,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * | MPLY  |   '   |   ,   |   .   |   P   |   Y   |  TAB  |  ENT  |   F   |   G   |   C   |   R   |   L   | VOLD  |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * | @MOVE |   A   | HOMEO | HOMEE | HOMEU | INDXI | ^LSFT | ^RSFT | INDXD | HOMEH | HOMET | HOMEN |   S   | @MOVE |
+ * | CLEAR |   A   | HOMEO | HOMEE | HOMEU | INDXI | ^LSFT | ^RSFT | INDXD | HOMEH | HOMET | HOMEN |   S   | CLEAR |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * | CLEAR |   ;   |   Q   |   J   |   K   | DIAGX |               | DIAGB |   M   |   W   |   V   |   Z   | CLEAR |
+ * | >MOVE |   ;   |   Q   |   J   |   K   | DIAGX |               | DIAGB |   M   |   W   |   V   |   Z   | >MOVE |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * | ^LGUI | HOME  | PGUP  | PGDN  |  END  | @SYMB |               | @SYMB | LEFT  | DOWN  |  UP   | RIGHT | ^RGUI |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
@@ -50,8 +50,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_moonlander(
         KC_MUTE,       KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_ESC,        KC_BSPC,       KC_6,    KC_7,   KC_8,     KC_9,          KC_0, KC_VOLU,
         KC_MPLY,       KC_QUOT,   KC_COMM,   KC_DOT,    KC_P,      KC_Y,      KC_TAB,        KC_ENT,        KC_F,    KC_G,   KC_C,     KC_R,          KC_L, KC_VOLD,
-        OSL(MOVE),     KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I,    OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,        KC_S, OSL(MOVE),
-        CLEAR,         KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X,    DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     CLEAR,
+        CLEAR,         KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I,    OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H, HOME_T,   HOME_N,        KC_S, CLEAR,
+        MO(MOVE),      KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X,    DIAG_B,        KC_M,          KC_W,    KC_V,   KC_Z,     MO(MOVE),
         OSM(MOD_LGUI), KC_HOME,   KC_PGUP,   KC_PGDN,   KC_END,    OSL(SYMB), OSL(SYMB),     KC_LEFT,       KC_DOWN, KC_UP,  KC_RIGHT, OSM(MOD_RGUI),
         KC_SPC,        OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
 ),
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
  * |       |       |  MSL  |  MSD  |  MSR  | PGDN  |       |       | BTN1  | LEFT  | DOWN  | RIGHT |       |       |
  * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
- * |       | RGB+  | RGB-  | HOME  |  END  | BOOT  |               | BOOT  |  WHL  |  WHR  |       |RGBTOG |       |
+ * |       | RGB+  | RGB-  | HOME  |  END  | BOOT  |               | BOOT  |C-S-TAB| C-TAB |       |RGBTOG |       |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * |       |       |       |       |       |       |               |       |       |       |       |       |       |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
@@ -98,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [MOVE] = LAYOUT_moonlander(
-        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
-        _______, _______, MS_WHLD,  MS_UP,   MS_WHLU, KC_PGUP, _______, _______, MS_BTN2, KC_ACL0, KC_UP,   KC_ACL1,  KC_ACL2, _______,
-        _______, _______, MS_LEFT,  MS_DOWN, MS_RGHT, KC_PGDN, _______, _______, MS_BTN1, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
-        _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, QK_BOOT, MS_WHLL, MS_WHLR, _______, RGB_TOG, _______,
-        _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______,  _______, _______, _______, _______, _______,            _______,      _______, _______, _______,  _______, _______,
+        _______, _______, MS_WHLD,  MS_UP,   MS_WHLU, KC_PGUP, _______, _______,            MS_BTN2,      KC_ACL0, KC_UP,   KC_ACL1,  KC_ACL2, _______,
+        _______, _______, MS_LEFT,  MS_DOWN, MS_RGHT, KC_PGDN, _______, _______,            MS_BTN1,      KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
+        _______, RGB_MOD, RGB_RMOD, KC_HOME, KC_END,  QK_BOOT, QK_BOOT, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), _______, RGB_TOG, _______,
+        _______, _______, _______,  _______, _______, _______, _______, _______,            _______,      _______, _______, _______,
         _______, _______, _______,  _______, _______, _______
 ),
 
