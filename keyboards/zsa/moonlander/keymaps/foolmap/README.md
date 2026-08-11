@@ -5,13 +5,13 @@
 To compile the firmware for Moonlander (Revision A), run:
 
 ```bash
-make zsa/moonlander/reva:foolmap
+qmk compile -kb zsa/moonlander/reva -km foolmap
 ```
 
 To compile and flash in one step:
 
 ```bash
-make zsa/moonlander/reva:foolmap:flash
+qmk flash -kb zsa/moonlander/reva -km foolmap
 ```
 
 ## Setup Requirements

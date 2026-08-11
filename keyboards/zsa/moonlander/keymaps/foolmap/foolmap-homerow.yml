@@ -63,6 +63,6 @@ layouts:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
     - _               _               _               pgup            _               esc             _               _               bspc            _               up              _               _               _
     - _               _               home            pgdn            end             tab             _               _               ent             left            down            right           _               _
-    - _               _               _               _               _               cw_togg                                         cw_togg         _               _               _               _               _
+    - _               _               _               _               _               cw_togg                                         cw_togg         rctl(rsft(tab)) rctl(tab)       _               _               _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
