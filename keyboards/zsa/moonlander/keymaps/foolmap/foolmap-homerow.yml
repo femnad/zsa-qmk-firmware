@@ -42,12 +42,12 @@ layouts:
     - mute            1               2               3               4               5               esc             bspc            6               7               8               9               0               volu
     - mply            quot            comm            dot             p               y               tab             ent             f               g               c               r               l               vold
     - clear           a               home_o          home_e          home_u          indx_i          osm(lsft)       osm(rsft)       indx_d          home_h          home_t          home_n          s               clear
-    - mo(move)        scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mo(move)
+    - mprv            scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mnxt
     - home            pgup            pgdn            end             osl(indx)       kc_lgui                                         kc_lgui         osl(indx)       left            down            up              right
     -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
   symb:
-    - mprv            f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             wbak
-    - mnxt            exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             wfwd
+    - _               f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             _
+    - _               exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             _
     - _               lcbr            rcbr            lprn            rprn            eql             _               _               slsh            mins            unds            lbrc            rbrc            _
     - _               _               _               tild            pipe            grv                                             bsls            plus            del             ins             _               _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
