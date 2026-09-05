@@ -30,12 +30,12 @@ custom_definitions:
   indx_d: lt(indx, kc_d)
   left_shift_index: 31
   right_shift_index: 67
-  left_ctrl_index: 33
-  right_ctrl_index: 69
-  left_alt_index: 34
-  right_alt_index: 70
-  left_gui_index: 4
-  right_gui_index: 40
+  indx_osl_left_index: 24
+  indx_osl_right_index: 60
+  symb_osl_left_index: 33
+  symb_osl_right_index: 69
+  move_osl_left_index: 34
+  move_osl_right_index: 70
 
 layouts:
   base:
