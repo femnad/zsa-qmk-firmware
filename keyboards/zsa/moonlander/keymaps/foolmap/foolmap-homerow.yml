@@ -28,6 +28,7 @@ custom_definitions:
   home_u: mt(mod_lctl, kc_u)
   indx_i: lt(indx, kc_i)
   indx_d: lt(indx, kc_d)
+  spac_i: lt(indx, kc_space)
   left_shift_index: 31
   right_shift_index: 67
   indx_osl_left_index: 24
@@ -44,7 +45,7 @@ layouts:
     - clear           a               home_o          home_e          home_u          indx_i          osm(lsft)       osm(rsft)       indx_d          home_h          home_t          home_n          s               clear
     - mprv            scln            q               j               k               diag_x                                          diag_b          m               w               v               z               mnxt
     - home            pgup            pgdn            end             osl(indx)       kc_lgui                                         kc_lgui         osl(indx)       left            down            up              right
-    -                                                 spc             osl(symb)       osl(move)                                       osl(move)       osl(symb)       spc
+    -                                                 spac_i          osl(symb)       osl(move)                                       osl(move)       osl(symb)       spac_i
   symb:
     - _               f1              f2              f3              f4              f5              _               _               f6              f7              f8              f9              f10             _
     - _               exlm            at              hash            dlr             perc            _               _               circ            ampr            astr            f11             f12             _

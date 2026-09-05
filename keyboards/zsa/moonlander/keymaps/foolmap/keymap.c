@@ -16,6 +16,7 @@
 #define HOME_U MT(MOD_LCTL, KC_U)
 #define INDX_I LT(INDX, KC_I)
 #define INDX_D LT(INDX, KC_D)
+#define SPAC_I LT(INDX, KC_SPACE)
 #define LEFT_SHIFT_INDEX 31
 #define RIGHT_SHIFT_INDEX 67
 #define INDX_OSL_LEFT_INDEX 24
@@ -43,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
  * | HOME  | PGUP  | PGDN  |  END  | @INDX | LGUI  |               | LGUI  | @INDX | LEFT  | DOWN  |  UP   | RIGHT |
  * +-------+-------+-------+-------+-------+-------+               +-------+-------+-------+-------+-------+-------+
- *                         |  SPC  | @SYMB | @MOVE |               | @MOVE | @SYMB |  SPC  |
+ *                         | SPACI | @SYMB | @MOVE |               | @MOVE | @SYMB | SPACI |
  *                         +-------+-------+-------+               +-------+-------+-------+
  */
 
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CLEAR,   KC_A,      HOME_O,    HOME_E,    HOME_U,    INDX_I,  OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D,  HOME_H,  HOME_T, HOME_N,   KC_S, CLEAR,
         KC_MPRV, KC_SCLN,   KC_Q,      KC_J,      KC_K,      DIAG_X,  DIAG_B,        KC_M,          KC_W,    KC_V,    KC_Z,   KC_MNXT,
         KC_HOME, KC_PGUP,   KC_PGDN,   KC_END,    OSL(INDX), KC_LGUI, KC_LGUI,       OSL(INDX),     KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,
-        KC_SPC,  OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), KC_SPC
+        SPAC_I,  OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), SPAC_I
 ),
 
 /* Layer: SYMB
