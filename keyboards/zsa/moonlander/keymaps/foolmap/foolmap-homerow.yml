@@ -37,6 +37,8 @@ custom_definitions:
   symb_osl_right_index: 69
   move_osl_left_index: 34
   move_osl_right_index: 70
+  caps_word_left_index: 28
+  caps_word_right_index: 64
 
 layouts:
   base:

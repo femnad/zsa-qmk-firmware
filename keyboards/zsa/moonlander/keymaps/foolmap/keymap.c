@@ -25,6 +25,8 @@
 #define SYMB_OSL_RIGHT_INDEX 69
 #define MOVE_OSL_LEFT_INDEX 34
 #define MOVE_OSL_RIGHT_INDEX 70
+#define CAPS_WORD_LEFT_INDEX 28
+#define CAPS_WORD_RIGHT_INDEX 64
 
 enum custom_keycodes {
   CLEAR = SAFE_RANGE
@@ -248,6 +250,14 @@ bool rgb_matrix_indicators_user(void) {
     reset_color(SYMB_OSL_RIGHT_INDEX);
     reset_color(MOVE_OSL_LEFT_INDEX);
     reset_color(MOVE_OSL_RIGHT_INDEX);
+  }
+
+  if (is_caps_word_on()) {
+    rgb_matrix_set_color(CAPS_WORD_LEFT_INDEX, 255, 255, 0);
+    rgb_matrix_set_color(CAPS_WORD_RIGHT_INDEX, 255, 255, 0);
+  } else {
+    reset_color(CAPS_WORD_LEFT_INDEX);
+    reset_color(CAPS_WORD_RIGHT_INDEX);
   }
 
   return true;
