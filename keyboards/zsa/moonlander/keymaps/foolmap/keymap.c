@@ -19,6 +19,13 @@
 #define LEFT_SHIFT_INDEX 31
 #define RIGHT_SHIFT_INDEX 67
 
+#define INDX_OSL_LEFT_INDEX 24
+#define INDX_OSL_RIGHT_INDEX 60
+#define SYMB_OSL_LEFT_INDEX 33
+#define SYMB_OSL_RIGHT_INDEX 69
+#define MOVE_OSL_LEFT_INDEX 34
+#define MOVE_OSL_RIGHT_INDEX 70
+
 enum custom_keycodes {
   CLEAR = SAFE_RANGE
 };
@@ -205,6 +212,43 @@ bool rgb_matrix_indicators_user(void) {
   } else {
     reset_color(LEFT_SHIFT_INDEX);
     reset_color(RIGHT_SHIFT_INDEX);
+  }
+
+  uint8_t osl_state = get_oneshot_layer_state();
+  uint8_t osl_left_index = 0, osl_right_index = 0;
+  uint8_t osl_r = 0, osl_g = 0, osl_b = 0;
+  switch (get_oneshot_layer()) {
+    case INDX:
+      osl_left_index = INDX_OSL_LEFT_INDEX;
+      osl_right_index = INDX_OSL_RIGHT_INDEX;
+      osl_b = 255;
+      break;
+    case SYMB:
+      osl_left_index = SYMB_OSL_LEFT_INDEX;
+      osl_right_index = SYMB_OSL_RIGHT_INDEX;
+      osl_g = 255;
+      break;
+    case MOVE:
+      osl_left_index = MOVE_OSL_LEFT_INDEX;
+      osl_right_index = MOVE_OSL_RIGHT_INDEX;
+      osl_r = 255;
+      osl_b = 255;
+      break;
+  }
+
+  if (osl_state & ONESHOT_TOGGLED) {
+    rgb_matrix_set_color(osl_left_index, osl_r, osl_g, osl_b);
+    rgb_matrix_set_color(osl_right_index, osl_r, osl_g, osl_b);
+  } else if (osl_state) {
+    rgb_matrix_set_color(osl_left_index, osl_r / 2, osl_g / 2, osl_b / 2);
+    rgb_matrix_set_color(osl_right_index, osl_r / 2, osl_g / 2, osl_b / 2);
+  } else {
+    reset_color(INDX_OSL_LEFT_INDEX);
+    reset_color(INDX_OSL_RIGHT_INDEX);
+    reset_color(SYMB_OSL_LEFT_INDEX);
+    reset_color(SYMB_OSL_RIGHT_INDEX);
+    reset_color(MOVE_OSL_LEFT_INDEX);
+    reset_color(MOVE_OSL_RIGHT_INDEX);
   }
 
   return true;
