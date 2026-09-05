@@ -204,11 +204,11 @@ bool rgb_matrix_indicators_user(void) {
   uint8_t locked_mods = get_oneshot_locked_mods();
 
   if (mods & MOD_MASK_SHIFT) {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 0);
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 128);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 128);
   } else if (locked_mods & MOD_MASK_SHIFT) {
-    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 0);
-    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 0);
+    rgb_matrix_set_color(LEFT_SHIFT_INDEX, 255, 0, 255);
+    rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 255, 0, 255);
   } else {
     reset_color(LEFT_SHIFT_INDEX);
     reset_color(RIGHT_SHIFT_INDEX);
@@ -221,18 +221,17 @@ bool rgb_matrix_indicators_user(void) {
     case INDX:
       osl_left_index = INDX_OSL_LEFT_INDEX;
       osl_right_index = INDX_OSL_RIGHT_INDEX;
-      osl_b = 255;
+      osl_r = 255;
       break;
     case SYMB:
       osl_left_index = SYMB_OSL_LEFT_INDEX;
       osl_right_index = SYMB_OSL_RIGHT_INDEX;
-      osl_g = 255;
+      osl_b = 255;
       break;
     case MOVE:
       osl_left_index = MOVE_OSL_LEFT_INDEX;
       osl_right_index = MOVE_OSL_RIGHT_INDEX;
-      osl_r = 255;
-      osl_b = 255;
+      osl_g = 255;
       break;
   }
 
