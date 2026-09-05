@@ -18,12 +18,6 @@
 #define INDX_D LT(INDX, KC_D)
 #define LEFT_SHIFT_INDEX 31
 #define RIGHT_SHIFT_INDEX 67
-#define LEFT_CTRL_INDEX 33
-#define RIGHT_CTRL_INDEX 69
-#define LEFT_ALT_INDEX 34
-#define RIGHT_ALT_INDEX 70
-#define LEFT_GUI_INDEX 4
-#define RIGHT_GUI_INDEX 40
 
 enum custom_keycodes {
   CLEAR = SAFE_RANGE
@@ -211,39 +205,6 @@ bool rgb_matrix_indicators_user(void) {
   } else {
     reset_color(LEFT_SHIFT_INDEX);
     reset_color(RIGHT_SHIFT_INDEX);
-  }
-
-  if (mods & MOD_MASK_CTRL) {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 128, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 128, 0);
-  } else if (locked_mods & MOD_MASK_CTRL) {
-    rgb_matrix_set_color(LEFT_CTRL_INDEX, 0, 255, 0);
-    rgb_matrix_set_color(RIGHT_CTRL_INDEX, 0, 255, 0);
-  } else {
-    reset_color(LEFT_CTRL_INDEX);
-    reset_color(RIGHT_CTRL_INDEX);
-  }
-
-  if (mods & MOD_MASK_ALT) {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 128);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 128);
-  } else if (locked_mods & MOD_MASK_ALT) {
-    rgb_matrix_set_color(LEFT_ALT_INDEX, 0, 0, 255);
-    rgb_matrix_set_color(RIGHT_ALT_INDEX, 0, 0, 255);
-  } else {
-    reset_color(LEFT_ALT_INDEX);
-    reset_color(RIGHT_ALT_INDEX);
-  }
-
-  if (mods & MOD_MASK_GUI) {
-    rgb_matrix_set_color(LEFT_GUI_INDEX, 0, 100, 200);
-    rgb_matrix_set_color(RIGHT_GUI_INDEX, 0, 100, 200);
-  } else if (locked_mods & MOD_MASK_GUI) {
-    rgb_matrix_set_color(LEFT_GUI_INDEX, 100, 200, 255);
-    rgb_matrix_set_color(RIGHT_GUI_INDEX, 100, 200, 255);
-  } else {
-    reset_color(LEFT_GUI_INDEX);
-    reset_color(RIGHT_GUI_INDEX);
   }
 
   return true;
