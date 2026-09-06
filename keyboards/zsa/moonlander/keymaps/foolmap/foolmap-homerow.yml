@@ -37,8 +37,8 @@ custom_definitions:
   symb_osl_right_index: 69
   move_osl_left_index: 34
   move_osl_right_index: 70
-  caps_word_left_index: 28
-  caps_word_right_index: 64
+  caps_word_left_index: 32
+  caps_word_right_index: 68
 
 layouts:
   base:
@@ -54,18 +54,18 @@ layouts:
     - _               lcbr            rcbr            lprn            rprn            eql             _               _               slsh            mins            unds            lbrc            rbrc            _
     - _               _               _               tild            pipe            grv                                             bsls            plus            del             ins             _               _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
-    -                                                 _               _               _                                               _               _               _
+    -                                                 cw_togg         _               _                                               _               _               cw_togg
   move:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
     - _               _               _               ms_u            _               wh_u            _               _               btn5            acl0            acl1            acl2            _               _
     - _               _               ms_l            ms_d            ms_r            wh_d            _               _               btn4            btn1            btn3            btn2            _               _
-    - _               qk_boot         rgb_mod         rgb_rmod        _               cw_togg                                         cw_togg         rctl(rsft(tab)) rctl(tab)       rgb_tog         qk_boot         _
+    - _               qk_boot         rgb_mod         rgb_rmod        _               _                                               _               rctl(rsft(tab)) rctl(tab)       rgb_tog         qk_boot         _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
   indx:
     - _               _               _               _               _               _               _               _               _               _               _               _               _               _
     - _               _               _               pgup            _               esc             _               _               bspc            _               up              _               _               _
     - _               _               home            pgdn            end             tab             _               _               ent             left            down            right           _               _
-    - _               _               _               _               _               cw_togg                                         cw_togg         rctl(rsft(tab)) rctl(tab)       _               _               _
+    - _               _               _               _               _               _                                               _               rctl(rsft(tab)) rctl(tab)       _               _               _
     - _               _               _               _               _               _                                               _               _               _               _               _               _
     -                                                 _               _               _                                               _               _               _
