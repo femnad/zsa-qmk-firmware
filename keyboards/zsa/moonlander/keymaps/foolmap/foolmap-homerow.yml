@@ -17,6 +17,8 @@ header_definitions:
 custom_keys:
   - clear
 
+mode_tap_term: 350
+
 custom_definitions:
   diag_b: mt(mod_rsft, kc_b)
   diag_x: mt(mod_lsft, kc_x)
@@ -39,6 +41,14 @@ custom_definitions:
   move_osl_right_index: 70
   caps_word_left_index: 32
   caps_word_right_index: 68
+
+
+rules:
+  caps_word_enable: yes
+  command_enable: no
+  console_enable: no
+  oryx_enable: no
+  webusb_enable: no
 
 layouts:
   base:
