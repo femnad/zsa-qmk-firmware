@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_moonlander(
         KC_MUTE, KC_1, KC_2, KC_3, KC_4, KC_5, KC_ESC, KC_BSPC, KC_6, KC_7, KC_8, KC_9, KC_0, KC_VOLU,
         KC_MPLY, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_TAB, KC_ENT, KC_F, KC_G, KC_C, KC_R, KC_L, KC_VOLD,
-        KC_CLEAR, KC_A, HOME_O, HOME_E, HOME_U, INDX_I, OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D, HOME_H, HOME_T, HOME_N, KC_S, KC_CLEAR,
+        CLEAR, KC_A, HOME_O, HOME_E, HOME_U, INDX_I, OSM(MOD_LSFT), OSM(MOD_RSFT), INDX_D, HOME_H, HOME_T, HOME_N, KC_S, CLEAR,
         KC_MPRV, KC_SCLN, KC_Q, KC_J, KC_K, DIAG_X, DIAG_B, KC_M, KC_W, KC_V, KC_Z, KC_MNXT,
         KC_HOME, KC_PGUP, KC_PGDN, KC_END, OSL(INDX), KC_LGUI, KC_LGUI, OSL(INDX), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
         SPAC_I, OSL(SYMB), OSL(MOVE), OSL(MOVE), OSL(SYMB), SPAC_I
@@ -205,6 +205,7 @@ bool rgb_matrix_indicators_user(void) {
   uint8_t mods = get_oneshot_mods();
   uint8_t locked_mods = get_oneshot_locked_mods();
 
+#if defined(LEFT_SHIFT_INDEX) && defined(RIGHT_SHIFT_INDEX)
   if (mods & MOD_MASK_SHIFT) {
     rgb_matrix_set_color(LEFT_SHIFT_INDEX, 128, 0, 128);
     rgb_matrix_set_color(RIGHT_SHIFT_INDEX, 128, 0, 128);
@@ -215,7 +216,11 @@ bool rgb_matrix_indicators_user(void) {
     reset_color(LEFT_SHIFT_INDEX);
     reset_color(RIGHT_SHIFT_INDEX);
   }
+#endif
 
+#if defined(INDX_OSL_LEFT_INDEX) && defined(INDX_OSL_RIGHT_INDEX)
+#if defined(SYMB_OSL_LEFT_INDEX) && defined(SYMB_OSL_RIGHT_INDEX)
+#if defined(MOVE_OSL_LEFT_INDEX) && defined(MOVE_OSL_RIGHT_INDEX)
   uint8_t osl_state = get_oneshot_layer_state();
   uint8_t osl_left_index = 0, osl_right_index = 0;
   uint8_t osl_r = 0, osl_g = 0, osl_b = 0;
@@ -251,7 +256,11 @@ bool rgb_matrix_indicators_user(void) {
     reset_color(MOVE_OSL_LEFT_INDEX);
     reset_color(MOVE_OSL_RIGHT_INDEX);
   }
+#endif
+#endif
+#endif
 
+#if defined(CAPS_WORD_LEFT_INDEX) && defined(CAPS_WORD_RIGHT_INDEX)
   if (is_caps_word_on()) {
     rgb_matrix_set_color(CAPS_WORD_LEFT_INDEX, 255, 255, 0);
     rgb_matrix_set_color(CAPS_WORD_RIGHT_INDEX, 255, 255, 0);
@@ -259,6 +268,7 @@ bool rgb_matrix_indicators_user(void) {
     reset_color(CAPS_WORD_LEFT_INDEX);
     reset_color(CAPS_WORD_RIGHT_INDEX);
   }
+#endif
 
   return true;
 }
