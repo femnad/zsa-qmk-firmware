@@ -1,6 +1,6 @@
 header_definitions:
   mk_3_speed:
-  mk_c_offset_0 8:
+  mk_c_offset_0: 8
   mk_c_offset_1: 16
   mk_c_offset_2: 32
   mk_w_interval_0: 120
