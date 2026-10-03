@@ -1,0 +1,11 @@
+default:
+    @just --choose
+
+compile:
+    qmk compile -kb zsa/moonlander/reva -km foolmap
+
+flash:
+    qmk flash -kb zsa/moonlander/reva -km foolmap
+
+update:
+    uno qmk layout moonlander
